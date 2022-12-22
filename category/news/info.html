@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>INFO - NEWS | メカクシ団作戦本部</title>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="" name="description" />
+    <meta content="index,follow" name="robots" />
+    <meta content="index,follow,archive" name="googlebot" />
+    <meta
+      content="category/news/info"
+      property="og:url"
+    />
+    <meta content="website" property="og:type" />
+    <meta content="ja_JP" property="og:locale" />
+    <meta content="INFO - NEWS | メカクシ団作戦本部" property="og:title" />
+    <meta content="メカクシ団作戦本部" property="og:site_name" />
+    <meta content="" property="og:description" />
+    <meta content="" property="og:image" />
+    <link href="favicon.ico" rel="shortcut icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Yantramanav"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aldrich"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="css/reset.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="css/style.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="UTF-8"></script> -->
+    <script
+      src="js/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+    <!--[if lt IE 9]>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <script>
+      var PAGE_TYPE = "NEWS";
+    </script>
+    <script
+      src="js/jquery.easing.1.3.js"
+      charset="UTF-8"
+    ></script>
+    <script>
+      var WWW_GET_TWEET_URL = "get_tweet/";
+    </script>
+    <script src="js/main.js" charset="UTF-8"></script>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+
+      ga("create", "UA-39714128-1", "auto");
+      ga("send", "pageview");
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <aside class="menu">
+        <div class="container">
+          <div class="mainMenu">
+            <p id="mainMenuBtn">
+              <img
+                src="img/mainmenu_p_menu.png"
+                alt="menu"
+                width="29"
+                height="18"
+              />
+            </p>
+            <nav>
+              <ul>
+                <li><a href="">TOP</a></li>
+                <li>
+                  <a href="whatis"
+                    >What is KAGEROU PROJECT?</a
+                  >
+                </li>
+                <li>
+                  <a href="actors/kido">ACTORS</a>
+                </li>
+                <li>
+                  <a href="category/music/story_music"
+                    >MUSIC</a
+                  >
+                </li>
+                <li>
+                  <a href="category/novel/sub_novel"
+                    >NOVEL</a
+                  >
+                </li>
+                <li>
+                  <a href="category/comic/sub_comic"
+                    >COMIC</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="category/animation/sub_animation"
+                    >ANIMATION</a
+                  >
+                </li>
+                <li>
+                  <a href="category/other">OTHER</a>
+                </li>
+                <li class="current">
+                  <a href="category/news">NEWS</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="share">
+            <ul>
+              <li class="tw">
+                <a
+                  id="share_twitter"
+                  href="http://twitter.com/share?url=&text=%E3%83%A1%E3%82%AB%E3%82%AF%E3%82%B7%E5%9B%A3%E4%BD%9C%E6%88%A6%E6%9C%AC%E9%83%A8"
+                  target="_blank"
+                >
+                  <img
+                    src="img/share_p_twitter.png"
+                    alt="twitter"
+                    width="40"
+                    height="8"
+                  />
+                </a>
+              </li>
+              <li class="fb">
+                <a
+                  id="share_facebook"
+                  href="https://www.facebook.com/sharer/sharer.php?u="
+                  target="_blank"
+                >
+                  <img
+                    src="img/share_p_facebook.png"
+                    alt="facebook"
+                    width="47"
+                    height="8"
+                  />
+                </a>
+              </li>
+              <li class="gp">
+                <a
+                  id="share_googleplus"
+                  href="https://plus.google.com/share?url="
+                  target="_blank"
+                >
+                  <img
+                    src="img/share_p_googleplus.png"
+                    alt="googleplus"
+                    width="44"
+                    height="8"
+                  />
+                </a>
+              </li>
+            </ul>
+            <p class="lang">
+              <img
+                src="img/h_lang.png"
+                alt="google翻訳"
+                width="83"
+                height="26"
+              />
+            </p>
+          </div>
+        </div>
+        <div class="selectLang">
+          <div class="inner">
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                  {
+                    pageLanguage: "ja",
+                    layout:
+                      google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false,
+                  },
+                  "google_translate_element"
+                );
+              }
+            </script>
+            <script
+              type="text/javascript"
+              src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+            ></script>
+          </div>
+        </div>
+      </aside>
+      <div class="contentWrap">
+        <section id="news" class="honeycomb_bg">
+          <div>
+            <h1>
+              <img
+                src="img/logo_kagepro.png"
+                alt="カゲロウプロジェクト"
+                width="180"
+                height="12"
+              />
+            </h1>
+            <div class="newsContentsWrap">
+              <aside>
+                <div>
+                  <h3>
+                    <img
+                      src="img/news_p_archive.png"
+                      alt="archive"
+                      width="41"
+                      height="8"
+                    />
+                  </h3>
+                  <ul>
+                    <li>
+                      <a href="date/2022">2022</a>
+                    </li>
+                    <li>
+                      <a href="date/2021">2021</a>
+                    </li>
+                    <li>
+                      <a href="date/2020">2020</a>
+                    </li>
+                    <li>
+                      <a href="date/2019">2019</a>
+                    </li>
+                    <li>
+                      <a href="date/2018">2018</a>
+                    </li>
+                    <li>
+                      <a href="date/2017">2017</a>
+                    </li>
+                    <li>
+                      <a href="date/2016">2016</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>
+                    <img
+                      src="img/news_p_category.png"
+                      alt="category"
+                      width="49"
+                      height="8"
+                    />
+                  </h3>
+                  <ul>
+                    <li>
+                      <a href="category/news">ALL</a>
+                    </li>
+                    <li class="cat-item cat-item-14">
+                      <a href="category/news/event"
+                        >EVENT</a
+                      >
+                    </li>
+                    <li class="cat-item cat-item-15 current-cat">
+                      <a href="category/news/info"
+                        >INFO</a
+                      >
+                    </li>
+                    <li class="cat-item cat-item-16">
+                      <a href="category/news/release"
+                        >RELEASE</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+              <div>
+                <article>
+                  <a href="news/1116">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2022/04/01-150x150.jpg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2022. 04. 01</p>
+                        <p>EVENTINFO</p>
+                      </div>
+                      <h2>
+                        【期間限定イベントINFO】本日4/1(金)～3日(日)の3日間限定!!「カゲロウプロジェクト
+                        POP UP STORE」＠名古屋 ・セントラルパーク地下街開催!!
+                      </h2>
+                      <p>
+                        本日4/1(金)～4/3(日)までの3日間限定の期間限定ショップが、名古屋・セントラルパーク地下街でオープン!!
+                        &nbsp; イベント概要詳細:https://bit.ly/3FZnwFv
+                        掲載の新作グッズの他にも・・・
+                        現在オンラインショップ&quot;1st PLACE Official Shop
+                        -HAC...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1105">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2022/02/【kp10th再受注】お品書き-150x150.jpeg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2022. 02. 07</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        これがラストチャンス!
+                        大好評につきオンラインサイトHACHIMAKIで、ただいまより2/17(木)23:59までの10日間限定で、昨年夏に期間受注限定グッズとして販売した、10th
+                        Anniversary キャラファイングラフ /
+                        アクリルブロックアート /
+                        A4アクリルプレートの再受注を開始！
+                      </h2>
+                      <p>
+                        昨年2021年夏に大好評を博した、カゲロウプロジェクト10th
+                        Anniversaryグッズより、オンラインサイトHACHIMAKIでのみ期間受注限定グッズとして予約販売された、シックなイラストが映える、キャラファイングラフ、アクリルブロックアート、A4アクリルプレート...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1096">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2022/01/MAIN-150x150.jpeg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2022. 01. 31</p>
+                        <p>EVENTINFO</p>
+                      </div>
+                      <h2>
+                        【期間限定情報】2月12日(土)～東京/渋谷、4月1日(金)～愛知/名古屋でPOP
+                        UP STORE期間限定開催!!
+                      </h2>
+                      <p>
+                        カゲロウプロジェクトのPOP UP STORE
+                        が、期間限定で開催決定！ しづの最新画集『.dsd/V』
+                        掲載のイラストやスタンディパネルの展示、イベント開催記念商品の販売を予定!!また、オリジナルグッズが当たるお買上抽選会も実施予定!!
+                        下記開催時期や詳細...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1087">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2021/12/01修正_【サイトページバナー】HACHIMAKI_カゲロウプロジェクト-150x150.jpeg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2021. 12. 14</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        12/15(水)18:00~12/22(水)期間 1st PLACE Official Shop
+                        -HACHIMAKI-で、新作グッズの販売を含む“カゲロウプロジェクト10th
+                        Anniversary Winterキャンペーン”開催!!
+                      </h2>
+                      <p>
+                        本キャンペーンでは、最新グッズとして2022年最新カレンダー2種、イベント会場にて好評を博し即完売となって以降、未発売となっていたシンタロー、アヤノーがプリントされた特徴的なフリンジ付マフラーの再販を明日12/15(水)18:00~1st
+                        PLACE Official Shop -H...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1078">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2021/09/MAIN-150x150.jpeg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2021. 09. 30</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        【カゲロウプロジェクト
+                        フェア情報】11/26(金)～12/12(日)期間
+                        全国アニメイト・通販にて、“カゲロウプロジェクト10th
+                        Anniversary フェア in アニメイト”開催決定!!
+                        本日9/30(木)より最新グッズの予約受付開始!!
+                      </h2>
+                      <p>
+                        11/26(金)～12/12(日)期間
+                        全国アニメイト・通販にて、&ldquo;カゲロウプロジェクト10th
+                        Anniversary フェア in アニメイト&rdquo;開催決定!!
+                        本日9/30(木)より最新グッズの予約受付開始!!
+                        ご予約はコチラ : https://bit.ly/3ix4Hkb
+                        カゲロウプロジェクト10周年記念...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1068">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2021/08/告知ヘッダー_01-150x150.jpeg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2021. 08. 17</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        2021年8月15日より、オンラインサイトHACHIMAKIで、カゲロウプロジェクト
+                        最新グッズ10th Anniversary キャンペーンが開始!!
+                      </h2>
+                      <p>
+                        しづ新規描きおろしによるシックにスーツを着こなすメカクシ団員が集合!!
+                        カゲロウプロジェクト記念すべき10周年イヤーをむかえ、本日8/15(日)より期間受注限定グッズを含むカゲロウプロジェクト最新グッズ全9種を1st
+                        PLACE Official Shop -HACHIMAKI-で発...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1065">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2021/08/サブスク長方形-150x150.png"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2021. 08. 17</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        2021年8月15日より、各音楽配信サイトで、未配信となっていた、AL「メカクシティレコーズ」のサブスク配信開始!!
+                      </h2>
+                      <p>
+                        YouTubeで1,000万再生を越える「サマータイムレコード」、「ロスタイムメモリー」、「夕景イエスタデイ」をはじめとして、サブスクサイトで未配信となっていたアルバム「メカクシティレコーズ」収録の人気楽曲全13曲を、各音楽サブスクリプションサービスで遂...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1060">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2020/12/KPエアコミケ告知画-150x150.png"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2020. 12. 25</p>
+                        <p>EVENTINFO</p>
+                      </div>
+                      <h2>
+                        エアコミケ2開催!! KAGEROU PROJECT新作グッズを、1st PLACE
+                        Official Shop
+                        -HACHIMAKI-で限定販売開始！(2021/1/4(月)受注〆切)
+                      </h2>
+                      <p>
+                        今夏に好評を博した「キャラファイングラフ」第2弾をはじめ、B2タペストリー、BIGアクリルキーホルダー、アクリルプレート(A4)、夜咄ディセイブパーカー等、多数ラインナップの受注受付がスタート
+                        下記受付期間詳細をチェックの上、どうぞお早めにお買い求...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1055">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2020/09/告知用2re-150x150.jpg"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2020. 09. 02</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        早くもLINEスタンプ第2弾
+                        &#8220;カゲロウプロジェクト_school”が本日9/2(火)販売開始!!
+                      </h2>
+                      <p>
+                        第1弾に続き、早くもLINEスタンプ第2弾登場!! &rdquo;
+                        カゲロウプロジェクト_school&rdquo;が本日9/2(火)LINE
+                        STOREで配信スタート
+                        新学期シーズンにもぴったりの全16種をラインナップ!
+                        可愛くデフォルメされた、メカクシ団
+                        と共にスクールライフをお楽しみ下さい! ...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article>
+                  <a href="news/1049">
+                    <p class="thumb">
+                      <img
+                        src="uploads/2020/08/告知用-150x150.png"
+                        width="120"
+                        height="120"
+                      />
+                    </p>
+                    <div>
+                      <div class="meta">
+                        <p class="date">2020. 08. 15</p>
+                        <p>INFO</p>
+                      </div>
+                      <h2>
+                        待望のLINEスタンプ第1弾
+                        &#8220;カゲロウプロジェクト_daze”が本日8/15(土)販売開始!!
+                      </h2>
+                      <p>
+                        待望の、LINEスタンプ 第一弾&rdquo;
+                        カゲロウプロジェクト_daze&rdquo;が本日8/15(土)LINE
+                        STOREで販売スタート
+                        第一弾は、&quot;daze&quot;絵柄をテーマとして全24スタンプで、普段使いしやすい内容!!
+                        友達やご家族とのコミュニケーションツールとして、たくさん活用下さい!!
+                        ...
+                      </p>
+                    </div>
+                  </a>
+                </article>
+
+                <div class="wp-pagenavi">
+                  <span class="current">1</span
+                  ><a
+                    class="page larger"
+                    href="category/news/info/page/2"
+                    >2</a
+                  ><a
+                    class="page larger"
+                    href="category/news/info/page/3"
+                    >3</a
+                  ><a
+                    class="page larger"
+                    href="category/news/info/page/4"
+                    >4</a
+                  ><a
+                    class="page larger"
+                    href="category/news/info/page/5"
+                    >5</a
+                  ><a
+                    class="nextpostslink"
+                    rel="next"
+                    href="category/news/info/page/2"
+                    >»</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <p id="copy">
+        <img
+          src="img/footer_copy.png"
+          alt="メカクシ団作戦本部 © 2015 KAGEROU PROJECT / 1st PLACE"
+          width="180"
+          height="24"
+        />
+      </p>
+      <footer>
+        <div>
+          <nav>
+            <ul>
+              <li><a href="">TOP</a></li>
+              <li><a href="actors/kido">ACTORS</a></li>
+              <li>
+                <a href="category/novel/sub_novel"
+                  >NOVEL</a
+                >
+              </li>
+              <li>
+                <a
+                  href="category/animation/sub_animation"
+                  >ANIMATION</a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="whatis"
+                  >What is KAGEROU PROJECT?</a
+                >
+              </li>
+              <li>
+                <a href="category/music/story_music"
+                  >MUSIC</a
+                >
+              </li>
+              <li>
+                <a href="category/comic/sub_comic"
+                  >COMIC</a
+                >
+              </li>
+              <li><a href="#">OTHER</a></li>
+            </ul>
+          </nav>
+          <div class="news">
+            <h3>
+              <img
+                src="img/footer_p_news.png"
+                alt="news"
+                width="26"
+                height="7"
+              />
+            </h3>
+            <ul>
+              <li>
+                <span>2022. 04. 01</span
+                ><a href="news/1116"
+                  >【期間限定イベントINFO】本日4/1(金)～3日(日)の3日間限定!!「カゲロウプロジェクト
+                  POP UP STORE」＠名古屋 ・セントラルパーク地下街開催!!</a
+                >
+              </li>
+              <li>
+                <span>2022. 02. 07</span
+                ><a href="news/1105"
+                  >これがラストチャンス!
+                  大好評につきオンラインサイトHACHIMAKIで、ただいまより2/17(木)23:59までの10日間限定で、昨年夏に期間受注限定グッズとして販売した、10th
+                  Anniversary キャラファイングラフ / アクリルブロックアート /
+                  A4アクリルプレートの再受注を開始！</a
+                >
+              </li>
+              <li>
+                <span>2022. 01. 31</span
+                ><a href="news/1096"
+                  >【期間限定情報】2月12日(土)～東京/渋谷、4月1日(金)～愛知/名古屋でPOP
+                  UP STORE期間限定開催!!</a
+                >
+              </li>
+              <li>
+                <span>2021. 12. 14</span
+                ><a href="news/1087"
+                  >12/15(水)18:00~12/22(水)期間 1st PLACE Official Shop
+                  -HACHIMAKI-で、新作グッズの販売を含む“カゲロウプロジェクト10th
+                  Anniversary Winterキャンペーン”開催!!</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="twitter">
+            <h3>
+              <img
+                src="img/footer_p_twitter.png"
+                alt="twitter"
+                width="40"
+                height="7"
+              />
+            </h3>
+            <div id="tweetContainer">
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <p id="totop">
+          <img
+            src="img/to_top_btn.png"
+            alt="to top"
+            width="37"
+            height="16"
+          />
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

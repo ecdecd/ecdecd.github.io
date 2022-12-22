@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<head>
+<title>ELECODE PROJECT</title>
+<meta charset='UTF-8' />
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
+<link href='favicon.ico' rel='shortcut icon'/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link href='css/font.css' rel='stylesheet' type='text/css'>
+<link href='css/reset.css' media='all' rel='stylesheet' type='text/css' />
+<link href='css/style.css' media='all' rel='stylesheet' type='text/css' />
+<script src="js/jquery.min.js" charset="UTF-8"></script>
+<script>
+var PAGE_TYPE = "TOP";
+</script>
+<script src="js/jquery.easing.1.3.js" charset="UTF-8"></script>
+<script> var WWW_GET_TWEET_URL = "get_tweet/"; </script>
+<script src="js/main.js" charset="UTF-8"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39714128-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<div id="wrapper" class="loading">
+    <aside class="menu">
+        <div class="container">
+            <div class="mainMenu">
+                <p id="mainMenuBtn">
+                    <img src="img/mainmenu_p_menu.png" alt="menu" width="29" height="18" />
+                </p>
+                <nav>
+                    <ul>
+                        <li class='current'><a href="">HOME</a></li>
+                        <li><a href="welcome">WELCOME TO ELEOCODE</a></li>
+                        <li><a href="element">ELEMENT</a></li>
+                        <li><a href="group">GROUP</a></li>
+                        <li><a href="outworker">OUTWORKER</a></li>
+                        <li><a href="event">EVENT</a></li>
+                        <li><a href="campaign">CAMPAIGN</a></li>
+                        <li><a href="support">SUPPORT</a></li>
+                        <li><a href="118cr">CHAT ROOM</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+                <div class="banners">
+                <p id="bannersBtn">
+                    BANNER
+                </p>
+                <div class="bannersWrap">
+                    <ul>
+                        <li id="widget_sp_image-2" class="widget widget_sp_image"><h2 class="widgettitle">YYZ</h2>
+<a href="http://youyezai.tk/" id="" target="_blank" class="widget_sp_image-image-link" title="由野哉" rel=""><img width="500" height="148" alt="由野哉" class="attachment-full" style="max-width: 100%;" src="img/others/banner_01.jpg" /></a></li>
+<li id="widget_sp_image-3" class="widget widget_sp_image"><h2 class="widgettitle">ECD</h2>
+<a href="http://elecode.ga/" id="" target="_blank" class="widget_sp_image-image-link" title="元素编码" rel=""><img width="500" height="148" alt="ELECODE" class="attachment-full" style="max-width: 100%;" src="img/others/banner_02.jpg" /></a></li>
+                    </ul>
+                    <p class="close">
+                        <img src="img/menu_close_btn.png" alt="close" width="27" height="27" />
+                    </p>
+                </div>
+            </div>
+            </div>
+
+    </aside>
+<script src="js/jquery.shuffleLetters.js" charset="UTF-8"></script>
+<script src="js/pace.min.js" charset="UTF-8"></script>
+<script>
+$(function(){
+
+    var isNewSettion = true;
+    var hnum = 31;
+
+    $("#top").append('<ul id="topBg" />');
+    var bgCon = $("#topBg");
+    for(var i = 1; i < 7; i++){
+        bgCon.append('<li class="_' + i + '" />');
+    }
+    bgCon.find("li").width($(window).width());
+    bgCon.width($(window).width() * 6);
+    $(window).resize(function(){
+        bgCon.find("li").width($(window).width());
+        bgCon.width($(window).width() * 6);
+    });
+
+    Pace.on("done", function(){
+        setTimeout(function(){
+            $("#loading").addClass("hide");
+            $(".pace").animate({left: "50%", right: "50%"}, 300, function(){
+                $(this).remove();
+                $("#topMenu .welcome").addClass("show");
+                setTimeout(function(){
+                    $("#topMenu .welcome span").addClass("show");
+                    $("#topMenu li").addClass("show");
+                    showMenuHoneyComb();
+                    $("#wrapper aside.menu, #wrapper #top > div .copy, #wrapper #top .content").delay(600).fadeIn(1400, function(){
+                        $("#wrapper").removeClass("loading");
+                    });
+                    setTimeout(function(){
+                        $("#loading").fadeOut(4000);
+                    }, 800);
+                    if(isNewSettion){
+                        setWelcomeArticle();
+                        $("#welcomeArticle").delay(600).animate({opacity : 1}, 1200);
+                    }else{
+                        $("#welcomeArticle").hide();
+                    }
+                    bgCon.find("li").eq(0).addClass("show");
+                    setInterval(function(){
+                        bgCon.find("li").eq(1).addClass("show back");
+                        setTimeout(function(){
+                            bgCon.find("li").eq(1).removeClass("back");
+                            var clone = bgCon.find("li").eq(0).removeClass("show").clone();
+                            bgCon.append(clone).find("li").eq(0).remove();
+                        }, 4000);
+                    }, 6000);
+                }, 400);
+            });
+        }, 200);
+    });
+
+    function showMenuHoneyComb(){
+        var menu = $("#topMenu");
+        var xm = -55;
+        var ym = 91;
+        var xtmp = 93;
+        var ytmp = 106;
+        var ydv = 52;
+        var vd = 1;
+        var addd = true;
+        for(var i = 1; i <= hnum; i++){
+            var x = xm;
+            var y = ym;
+            if(i > 15){
+                x += 591;
+                y += 2;
+            }
+            if(i == 16){
+                vd = 1;
+                addd = true;
+            }
+            x += Math.floor(i / 2) * xtmp;
+            y += (i % 2) * ytmp;
+            if(i % 2 == 0){
+                if(addd){
+                    vd ++;
+                }else{
+                    vd --;
+                }
+                if(vd >= 2){
+                    addd = false;
+                }
+                if(vd <= 0){
+                    addd = true;
+                }
+            }
+            y += vd * ydv;
+            addSVG("_" + i, x, y);
+        }
+        addSVG("_" + hnum, xm, ym + ydv);
+        addSVG("_" + (hnum + 1), xm, ym + ydv + ytmp * 2);
+        addSVG("_" + (hnum + 2), x, ym - ydv - 2);
+        for(var i = 1; i <= hnum + 2; i++){
+            var delay = Math.ceil(hnum / 2) - i;
+            if(delay < 0) delay = delay * -1;
+            showSVG("_" + i, delay);
+        }
+        function addSVG(classStr, _x, _y){
+            menu.append('<svg class="' + classStr + '" style="left:' + _x + 'px;top:' + _y + 'px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#nofunctionHC"/></svg>');
+        }
+    }
+
+    function showSVG(classStr, delay){
+        setTimeout(function(){
+            $("#topMenu svg." + classStr).attr('class', function(index, classNames) {
+                return classNames + ' show';
+            });
+        }, delay * 30);
+    }
+
+    var title = $("#top .content h1 span");
+    var titleStr = title.html();
+    var SubTitleStr = [
+        {
+            title : "ELEMENT",
+            width : 117,
+        },
+        {
+            title : "GROUP",
+            width : 85
+        },
+        {
+            title : "OUTWORKER",
+            width : 160
+        },
+        {
+            title : "EVENT",
+            width : 85
+        },
+        {
+            title : "CAMPAIGN",
+            width : 136
+        },
+        {
+            title : "SUPPORT",
+            width : 117
+        }
+    ];
+    var menuAncs = $("li svg a");
+
+    menuAncs.hover(function(){
+        var index = menuAncs.index(this);
+        title.replaceWith("<span />");
+        title = $("#top .content h1 span").width(SubTitleStr[index].width);
+        title.shuffleLetters({
+            step  : 12,
+            fps   : 40,
+            text  : SubTitleStr[index].title,
+            callback : function(){
+                title.append("<span>_</span>");
+            }
+        });
+        $(this).parents("li").addClass("hover");
+    }, function(){
+        returnTitle();
+        $(this).parents("li").removeClass("hover");
+    });
+
+    $("#topMenu .welcome a").hover(function(){
+        title.replaceWith("<span />");
+        title = $("#top .content h1 span").width(317);
+        title.shuffleLetters({
+            step  : 12,
+            fps   : 45,
+            text  : "WELCOME TO ELECODE",
+            callback : function(){
+                title.append("<span>_</span>");
+            }
+        });
+    }, function(){
+        returnTitle();
+    });
+
+    function returnTitle(){
+        title.replaceWith("<span />");
+        title = $("#top .content h1 span").width(473);
+        title.html("").shuffleLetters({
+            "step"  : 10,
+            "fps"   : 50,
+            "text"  : titleStr
+        });
+    }
+
+    setWelcomeArticle();
+    $(window).resize(function(){
+        setWelcomeArticle();
+    });
+    function setWelcomeArticle(){
+        var wh = $(window).height();
+        $("#welcomeArticle .content").css({
+            maxHeight : wh - 80,
+            height : "auto"
+        });
+        $("#welcomeArticle .content").css({
+            marginTop : (wh - $("#welcomeArticle .content").outerHeight()) / 2
+        });
+    }
+
+    $("#welcomeArticle .close").click(function(){
+        $("#welcomeArticle").fadeOut(600);
+    });
+
+});
+</script>
+
+    <div class="contentWrap">
+        <section id="top" class="top">
+            <div>
+                <div class="content">
+                    <h1><span>ELECODE PROJECT OFFICIAL WEB</span></h1>
+                </div>
+                <div id="topMenu">
+                    <nav>
+                        <ul>
+                            <li class="welcome">
+                                <a href="welcome">
+                                    <img src="img/menu_7.png" width="300px" height="37.5px" alt="Welcome to ELECODE" />
+                                </a>
+                            </li>
+                            <li class="element">
+                                <svg>
+                                    <a xlink:href="actors/kido">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_1.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                            <li class="group">
+                                <svg>
+                                    <a xlink:href="group">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_2.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                            <li class="outworker">
+                                <svg>
+                                    <a xlink:href="category/other">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_3.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                            <li class="event">
+                                <svg>
+                                    <a xlink:href="category/novel/sub_novel">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_4.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                            <li class="campaign">
+                                <svg>
+                                    <a xlink:href="category/comic/sub_comic">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_5.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                            <li class="support">
+                                <svg>
+                                    <a xlink:href="support">
+                                        <polygon style="fill:transparent;stroke:transparent;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107" />
+                                        <image x="37" y="41" width="50px" height="25px" xlink:href="img/menu_6.png"/>
+                                    </a>
+                                </svg>
+                            </li>
+                        </ul>
+                    </nav>
+                                        <svg version="1.1" id="nofunctionHC" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px" height="107px" viewBox="0 0 124 107" style="enable-background:new 0 0 124 107;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <polygon class="bg" style="fill:transparent;stroke:#888888;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107 	"/>
+                                <rect x="76.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <rect x="80.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <rect x="84.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <polygon class="edge" style="fill:#888888;" points="98.525,10.5 94.525,10.5 88.725,0.5 92.725,0.5 	"/>
+                                <polygon class="edge" style="fill:#888888;" points="40.797,103.05 33.274,103.05 29.475,96.5 25.475,96.5 29.274,103.05 29.272,103.05
+                                31.272,106.5 31.275,106.5 35.275,106.5 42.797,106.5 "/>
+                            </g>
+                            <g>
+                                <defs>
+                                    <polygon id="nofunctionHC_SVGID_1_" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107"/>
+                                </defs>
+                                <clipPath id="nofunctionHC_SVGID_2_">
+                                    <use xlink:href="#nofunctionHC_SVGID_1_"  style="overflow:visible;"/>
+                                </clipPath>
+                                <g style="opacity:0.15;clip-path:url(#nofunctionHC_SVGID_2_);">
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-291.775" y1="-100.704" x2="-104.275" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-286.584" y1="-100.704" x2="-99.084" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-281.394" y1="-100.704" x2="-93.894" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-276.203" y1="-100.704" x2="-88.703" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-271.013" y1="-100.704" x2="-83.513" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-265.822" y1="-100.704" x2="-78.322" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-260.631" y1="-100.704" x2="-73.131" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-255.441" y1="-100.704" x2="-67.941" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-250.25" y1="-100.704" x2="-62.75" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-245.06" y1="-100.704" x2="-57.56" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-239.869" y1="-100.704" x2="-52.369" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-234.678" y1="-100.704" x2="-47.178" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-229.488" y1="-100.704" x2="-41.988" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-224.297" y1="-100.704" x2="-36.797" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-219.107" y1="-100.704" x2="-31.607" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-213.916" y1="-100.704" x2="-26.416" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-208.725" y1="-100.704" x2="-21.225" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-203.535" y1="-100.704" x2="-16.035" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-198.344" y1="-100.704" x2="-10.844" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-193.154" y1="-100.704" x2="-5.654" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-187.963" y1="-100.704" x2="-0.463" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-182.773" y1="-100.704" x2="4.727" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-177.582" y1="-100.704" x2="9.918" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-172.391" y1="-100.704" x2="15.109" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-167.201" y1="-100.704" x2="20.299" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-162.01" y1="-100.704" x2="25.49" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-156.82" y1="-100.704" x2="30.68" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-151.629" y1="-100.704" x2="35.871" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-146.438" y1="-100.704" x2="41.062" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-141.248" y1="-100.704" x2="46.252" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-136.057" y1="-100.704" x2="51.443" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-130.867" y1="-100.704" x2="56.633" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-125.676" y1="-100.704" x2="61.824" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-120.485" y1="-100.704" x2="67.015" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-115.295" y1="-100.704" x2="72.205" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-110.104" y1="-100.704" x2="77.396" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-104.914" y1="-100.704" x2="82.586" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-99.723" y1="-100.704" x2="87.777" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-94.532" y1="-100.704" x2="92.968" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-89.342" y1="-100.704" x2="98.158" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-84.151" y1="-100.704" x2="103.349" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-78.961" y1="-100.704" x2="108.539" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-73.77" y1="-100.704" x2="113.73" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-68.579" y1="-100.704" x2="118.921" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-63.389" y1="-100.704" x2="124.111" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-58.198" y1="-100.704" x2="129.302" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-53.008" y1="-100.704" x2="134.492" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-47.817" y1="-100.704" x2="139.683" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-42.626" y1="-100.704" x2="144.874" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-37.436" y1="-100.704" x2="150.064" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-32.245" y1="-100.704" x2="155.255" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-27.055" y1="-100.704" x2="160.445" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-21.864" y1="-100.704" x2="165.636" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-16.674" y1="-100.704" x2="170.826" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-11.483" y1="-100.704" x2="176.017" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-6.292" y1="-100.704" x2="181.208" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-1.102" y1="-100.704" x2="186.398" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="4.089" y1="-100.704" x2="191.589" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="9.279" y1="-100.704" x2="196.779" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="14.47" y1="-100.704" x2="201.97" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="19.661" y1="-100.704" x2="207.161" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="24.851" y1="-100.704" x2="212.351" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="30.042" y1="-100.704" x2="217.542" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="35.232" y1="-100.704" x2="222.732" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="40.423" y1="-100.704" x2="227.923" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="45.614" y1="-100.704" x2="233.114" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="50.804" y1="-100.704" x2="238.304" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="55.995" y1="-100.704" x2="243.495" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="61.185" y1="-100.704" x2="248.685" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="66.376" y1="-100.704" x2="253.876" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="71.567" y1="-100.704" x2="259.067" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="76.757" y1="-100.704" x2="264.257" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="81.948" y1="-100.704" x2="269.448" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="87.138" y1="-100.704" x2="274.638" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="92.329" y1="-100.704" x2="279.829" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="97.52" y1="-100.704" x2="285.02" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="102.71" y1="-100.704" x2="290.21" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="107.901" y1="-100.704" x2="295.401" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="113.091" y1="-100.704" x2="300.591" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="118.282" y1="-100.704" x2="305.782" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="123.473" y1="-100.704" x2="310.973" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="128.663" y1="-100.704" x2="316.163" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="133.854" y1="-100.704" x2="321.354" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="139.044" y1="-100.704" x2="326.544" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="144.235" y1="-100.704" x2="331.735" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="149.425" y1="-100.704" x2="336.926" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="154.616" y1="-100.704" x2="342.116" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="159.807" y1="-100.704" x2="347.307" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="164.997" y1="-100.704" x2="352.497" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="170.188" y1="-100.704" x2="357.688" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="175.378" y1="-100.704" x2="362.878" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="180.569" y1="-100.704" x2="368.069" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="185.76" y1="-100.704" x2="373.26" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="190.95" y1="-100.704" x2="378.45" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="196.141" y1="-100.704" x2="383.641" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="201.331" y1="-100.704" x2="388.831" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="206.522" y1="-100.704" x2="394.022" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="211.713" y1="-100.704" x2="399.213" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="216.903" y1="-100.704" x2="404.403" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="222.094" y1="-100.704" x2="409.594" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="227.284" y1="-100.704" x2="414.784" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="232.475" y1="-100.704" x2="419.975" y2="224.056"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                                        <svg version="1.1" id="menuHC" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="124px" height="107px" viewBox="0 0 124 107" style="enable-background:new 0 0 124 107;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <polygon class="bg" style="fill:transparent;stroke:#888888;stroke-miterlimit:10;" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107 	"/>
+                                <rect x="76.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <rect x="80.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <rect x="84.5" y="5" style="fill:#888888;" width="2" height="2"/>
+                                <polygon class="edge" style="fill:#888888;" points="98.525,10.5 94.525,10.5 88.725,0.5 92.725,0.5 	"/>
+                                <polygon class="edge" style="fill:#888888;" points="40.797,103.05 33.274,103.05 29.475,96.5 25.475,96.5 29.274,103.05 29.272,103.05
+                                31.272,106.5 31.275,106.5 35.275,106.5 42.797,106.5 "/>
+                            </g>
+                            <g>
+                                <defs>
+                                    <polygon id="menuHC_SVGID_1_" points="31,107 0,53.5 31,0 93,0 124,53.5 93,107"/>
+                                </defs>
+                                <clipPath id="menuHC_SVGID_2_">
+                                    <use xlink:href="#menuHC_SVGID_1_"  style="overflow:visible;"/>
+                                </clipPath>
+                                <g style="opacity:0.15;clip-path:url(#menuHC_SVGID_2_);">
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-291.775" y1="-100.704" x2="-104.275" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-286.584" y1="-100.704" x2="-99.084" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-281.394" y1="-100.704" x2="-93.894" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-276.203" y1="-100.704" x2="-88.703" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-271.013" y1="-100.704" x2="-83.513" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-265.822" y1="-100.704" x2="-78.322" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-260.631" y1="-100.704" x2="-73.131" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-255.441" y1="-100.704" x2="-67.941" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-250.25" y1="-100.704" x2="-62.75" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-245.06" y1="-100.704" x2="-57.56" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-239.869" y1="-100.704" x2="-52.369" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-234.678" y1="-100.704" x2="-47.178" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-229.488" y1="-100.704" x2="-41.988" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-224.297" y1="-100.704" x2="-36.797" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-219.107" y1="-100.704" x2="-31.607" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-213.916" y1="-100.704" x2="-26.416" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-208.725" y1="-100.704" x2="-21.225" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-203.535" y1="-100.704" x2="-16.035" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-198.344" y1="-100.704" x2="-10.844" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-193.154" y1="-100.704" x2="-5.654" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-187.963" y1="-100.704" x2="-0.463" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-182.773" y1="-100.704" x2="4.727" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-177.582" y1="-100.704" x2="9.918" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-172.391" y1="-100.704" x2="15.109" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-167.201" y1="-100.704" x2="20.299" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-162.01" y1="-100.704" x2="25.49" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-156.82" y1="-100.704" x2="30.68" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-151.629" y1="-100.704" x2="35.871" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-146.438" y1="-100.704" x2="41.062" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-141.248" y1="-100.704" x2="46.252" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-136.057" y1="-100.704" x2="51.443" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-130.867" y1="-100.704" x2="56.633" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-125.676" y1="-100.704" x2="61.824" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-120.485" y1="-100.704" x2="67.015" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-115.295" y1="-100.704" x2="72.205" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-110.104" y1="-100.704" x2="77.396" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-104.914" y1="-100.704" x2="82.586" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-99.723" y1="-100.704" x2="87.777" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-94.532" y1="-100.704" x2="92.968" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-89.342" y1="-100.704" x2="98.158" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-84.151" y1="-100.704" x2="103.349" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-78.961" y1="-100.704" x2="108.539" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-73.77" y1="-100.704" x2="113.73" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-68.579" y1="-100.704" x2="118.921" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-63.389" y1="-100.704" x2="124.111" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-58.198" y1="-100.704" x2="129.302" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-53.008" y1="-100.704" x2="134.492" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-47.817" y1="-100.704" x2="139.683" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-42.626" y1="-100.704" x2="144.874" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-37.436" y1="-100.704" x2="150.064" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-32.245" y1="-100.704" x2="155.255" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-27.055" y1="-100.704" x2="160.445" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-21.864" y1="-100.704" x2="165.636" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-16.674" y1="-100.704" x2="170.826" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-11.483" y1="-100.704" x2="176.017" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-6.292" y1="-100.704" x2="181.208" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="-1.102" y1="-100.704" x2="186.398" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="4.089" y1="-100.704" x2="191.589" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="9.279" y1="-100.704" x2="196.779" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="14.47" y1="-100.704" x2="201.97" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="19.661" y1="-100.704" x2="207.161" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="24.851" y1="-100.704" x2="212.351" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="30.042" y1="-100.704" x2="217.542" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="35.232" y1="-100.704" x2="222.732" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="40.423" y1="-100.704" x2="227.923" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="45.614" y1="-100.704" x2="233.114" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="50.804" y1="-100.704" x2="238.304" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="55.995" y1="-100.704" x2="243.495" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="61.185" y1="-100.704" x2="248.685" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="66.376" y1="-100.704" x2="253.876" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="71.567" y1="-100.704" x2="259.067" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="76.757" y1="-100.704" x2="264.257" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="81.948" y1="-100.704" x2="269.448" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="87.138" y1="-100.704" x2="274.638" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="92.329" y1="-100.704" x2="279.829" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="97.52" y1="-100.704" x2="285.02" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="102.71" y1="-100.704" x2="290.21" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="107.901" y1="-100.704" x2="295.401" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="113.091" y1="-100.704" x2="300.591" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="118.282" y1="-100.704" x2="305.782" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="123.473" y1="-100.704" x2="310.973" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="128.663" y1="-100.704" x2="316.163" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="133.854" y1="-100.704" x2="321.354" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="139.044" y1="-100.704" x2="326.544" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="144.235" y1="-100.704" x2="331.735" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="149.425" y1="-100.704" x2="336.926" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="154.616" y1="-100.704" x2="342.116" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="159.807" y1="-100.704" x2="347.307" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="164.997" y1="-100.704" x2="352.497" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="170.188" y1="-100.704" x2="357.688" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="175.378" y1="-100.704" x2="362.878" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="180.569" y1="-100.704" x2="368.069" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="185.76" y1="-100.704" x2="373.26" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="190.95" y1="-100.704" x2="378.45" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="196.141" y1="-100.704" x2="383.641" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="201.331" y1="-100.704" x2="388.831" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="206.522" y1="-100.704" x2="394.022" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="211.713" y1="-100.704" x2="399.213" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="216.903" y1="-100.704" x2="404.403" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="222.094" y1="-100.704" x2="409.594" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="227.284" y1="-100.704" x2="414.784" y2="224.056"/>
+                                    <line style="fill:none;stroke:#FFFFFF;stroke-miterlimit:10;" x1="232.475" y1="-100.704" x2="419.975" y2="224.056"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div id="loading">
+                    <h2><img src="img/loading_title.png" width="320" height="60" alt="即将抵达ELECODE" /></h2>
+                    <h3><img src="img/loading.png" width="80" height="40" alt="LOADING..." /></h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="top">
+        <div>
+            <div class="chat">
+                <ul>
+                    <li><span>氦</span><a href="118cr/002">认真的？</a></li>
+                    <li><span>铬</span><a href="118cr/024">拒绝版聊从他人做起，意思是我就是要聊，( •̀ ω •́ )y</a></li>
+                    <li><span>锗</span><a href="118cr/032">我不负责招新谢谢</a></li>
+                    <li><span>铂</span><a href="118cr/078">掉价。</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <p id="totop">
+            <img src="img/to_top_btn.png" alt="to top" width="37" height="16" />
+        </p>
+    </footer>
+    <article id="welcomeArticle">
+        <div class="content">
+            <div class="inner">
+                <p class="meta">硅 <span>SILICON</span></p>
+                <h2>【半导协会的小广告】</h2>
+                <div class="body">
+                    <p><span style="text-decoration: underline; color: #ff0000;"><strong>机不可失时不再来！！</strong></span></p>
+<p>招新了！<br />
+还在为找不到就业岗位而黯然神伤吗？<br />
+还在为成日无所事事而感到不安吗？<br />
+加入我们！<br />
+不管你是金属还是非金属，我们协会始终有你的位置！<br />
+※详情咨询联系人：锗。</p>
+                </div>
+                <p class="close"><img src="img/menu_close_btn.png" alt="close" width="27" height="27" /></p>
+            </div>
+        </div>
+        <p class="close"></p>
+    </article>
+</div>
+</body>
+</html>
