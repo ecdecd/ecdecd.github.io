@@ -33,7 +33,7 @@
                 canvas, ctx;
 
             originalImg.src = url;
-            img.src = url.replace(".png", "_x1.png");
+            img.src = url.replace(".png", ".png"); //改(".png", "_x1.png")，png需2x大小（1920x2220）
             img.onload = function(){
                 jqueryObj.replaceWith("<span id='" + id + "_con' style='display:block;position:relative;width:" + (w * 3)  + "px;left:" + (w * -1) + "px;'><canvas id='" + id + "' /></span>");
                 canvas  = document.getElementById(id);

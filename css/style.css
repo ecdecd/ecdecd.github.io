@@ -6,8 +6,9 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 a{
-    color:inherit;
+    color:inherit;text-decoration:none
 }
+
 
 /* main menu */
 #wrapper{
@@ -740,117 +741,121 @@ top: 53px
 }
 
 
-/* actors */
-#actors{
+/* element */
+#element{
     width: 100%;
     min-height: inherit;
     background: #1a1919 url(../img/top_bg_grid.png) repeat center top;
     position: relative;
     z-index: 10;
 }
-#actors{
+#element{
     width: 100%;
     height: 100%;
-    background: url(../img/actor_bg_p_actor.png) no-repeat right 194px;
+    background: url(../img/element_bg_p_element.png) no-repeat right 194px;
     position: relative
 }
-#actors > div:first-child{
+#element > div:first-child{
     position: relative;
     z-index: 2;
 }
-#actors > div > h1{
+#element > div > h1{
     position: absolute;
     left: 21px;
     top: 70px;
+    color:white;
+    font-size: 18px;
+    font-family: 'Pathway Gothic One',霞鹜文楷, sans-serif;
+    letter-spacing: 6px
 }
 
-#actors .mainContent{
+#element .mainContent{
     width: 980px;
-    padding-top: 235px;
+    padding-top: 205px;
     margin: 0 auto;
     position: relative;
 }
-#actors .mainContent > ul{
+#element .mainContent > ul{
     position: absolute;
     top: 99px;
     left: 0;
     z-index: 100;
 }
-#actors .mainContent > ul li{
+#element .mainContent > ul li{
     float: left;
     margin-right: 4px;
 }
-#actors .mainContent > ul li a img{
+#element .mainContent > ul li a img{
     opacity: 0.2;
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
 }
-#actors .mainContent > ul li a:hover img{
+#element .mainContent > ul li a:hover img{
     opacity: 1;
 }
-#actors .mainContent > ul+div{
+#element .mainContent > ul+div{
     position: relative;
     z-index: 3;
 }
-#actors .mainContent h2{
+#element .mainContent h2{
     display: inline-block;
     position: relative;
+    font-family: 'Pathway Gothic One',霞鹜文楷, sans-serif;
+    font-size: 60px;
+    color: #14CCE2;
 }
-#actors .mainContent h2 span{
-    margin-bottom: 50px;
+#element .mainContent h2 span{
+    margin-bottom: 30px;
     display: block;
+    font-size: 34px
 }
-#actors .mainContent h2:after{
+#element .mainContent h2:after{
     content: '' ;
     height: 4px;
     background-color: #14cce2;
     display: block;
     position: absolute;
     top: 45px;
-    left: -9999px;
+    left: -999px;
 }
-#actors .mainContent .text{
-    width: 245px;
-    margin-top: 35px;
-    font-size: 10px;
+#element .mainContent .text{
+    width: 330px;
+    margin-top: 0px;
+    font-size: 14px;
     line-height: 22px;
-    color: #aaa;
+    color: black;
     letter-spacing: 0.05em;
 }
-#actors .mainContent .param{
-    line-height: 18px;
-    margin-bottom: 10px;
-}
-#actors .mainContent .ver{
+#element .mainContent .ver{
     margin-top: 20px;
     padding-top: 20px;
-    background: url(../img/content_p_ver.png) no-repeat left top;
+    background:url("data:image/svg+xml,%3Csvg width='61' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='15' fill='%2314cce2' font-family='霞鹜文楷' text-anchor='middle' dominant-baseline='middle'%3E图片版本%3C/text%3E%3C/svg%3E") no-repeat left top;
 }
-#actors .mainContent .ver.cv{
+#element .mainContent .ver.cv{
     margin-top: 27px;
-    background: url(../img/content_p_cv.png) no-repeat left top;
-    background-size: 20px 10px;
+    background: url("data:image/svg+xml,%3Csvg width='61' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='15' fill='%2314cce2' font-family='霞鹜文楷' text-anchor='middle' dominant-baseline='middle'%3E其他讯息%3C/text%3E%3C/svg%3E") no-repeat left top;
 }
-#actors .mainContent .ver ul li{
+#element .mainContent .ver ul li{
     height: 13px;
     margin-bottom: 17px;
+
 }
-#actors .mainContent .ver ul li a,
-#actors .mainContent .ver ul li span{
+#element .mainContent .ver ul li a,
+#element .mainContent .ver ul li span{
     height: 12px;
     padding: 1px 11px;
     background: url(../img/content_a_el_l_small.png) no-repeat left top;
     display: inline-block;
     position: relative;
+    font-size: 11px;
+    color: #EEE;
+    font-family: 霞鹜文楷, sans-serif;
 }
 
-#actors .mainContent .ver ul li span{
-    font-size: 13px;
-    color: #FFF;
-}
 
-#actors .mainContent .ver ul li a:before,
-#actors .mainContent .ver ul li span:before{
+
+#element .mainContent .ver ul li a:before,
+#element .mainContent .ver ul li span:before{
     content: '';
     width: 3px;
     height: 13px;
@@ -861,8 +866,8 @@ top: 53px
     display: block;
 }
 
-#actors .mainContent .ver ul li a:after,
-#actors .mainContent .ver ul li span:after{
+#element .mainContent .ver ul li a:after,
+#element .mainContent .ver ul li span:after{
     content: "";
     display: block;
     position: absolute;
@@ -876,38 +881,39 @@ top: 53px
     transition: right 200ms ease;
 }
 
-#actors .mainContent .ver ul li a.current:after,
-#actors .mainContent .ver ul li a:hover:after{
+#element .mainContent .ver ul li a.current:after,
+#element .mainContent .ver ul li a:hover:after{
     right: 10px;
 }
-#actors .mainContent .ver ul li a img{
+#element .mainContent .ver ul li a img{
     vertical-align: top;
 }
-#actors .mainContent .image{
+#element .mainContent .image{
     position: absolute;
 }
 
-/* actor kido */
-#actors.kido{
+/* actor elemen */
+#element.elemen{
     height: 999px;
 }
-#actors.kido .mainContent .image{
+#element.elemen .mainContent .image{
     top: 70px;
     left: 150px;
     z-index: 1;
+    pointer-events: none;
 }
-#actors.kido .mainContent .image img{
+#element.elemen .mainContent .image img{
     display: none;
     width: 960px;
     height: 1110px;
 }
 /*
-#actors.kido .mainContent .image canvas{
+#element.elemen .mainContent .image canvas{
     -webkit-transform: scale(0.5) translateX(-480px) translateY(-1110px);
     transform: scale(0.5) translateX(-480px) translateY(-1110px);
 }
 */
-#actors.kido .mainContent h2:after{
+#element.elemen .mainContent h2:after{
     right: -26px;
 }
 
@@ -1314,23 +1320,23 @@ top: 53px
 }
 
 /* what */
-#what{
-    background: url(../img/what_bg.png) no-repeat center center;
+#welto{
+    background: url(../img/wel_bg.png) no-repeat center center;
     background-size: cover;
 }
 
-#what polygon,
-#what rect{
+#welto polygon,
+#welto rect{
     fill: #454545 !important;
     stroke: #454545 !important;
 }
 
-#what polygon.bg{
+#welto polygon.bg{
     fill: #0b0b0b !important;
 }
 
 
-#what > header{
+#welto > header{
     position: absolute;
     width: 2000px;
     left: 50%;
@@ -1341,7 +1347,7 @@ top: 53px
     z-index: 11;
 }
 
-#what > header svg{
+#welto > header svg{
     position: absolute;
     left: 0;
     top: 0;
@@ -1349,7 +1355,7 @@ top: 53px
     height: 107px;
 }
 
-#what > header h1{
+#welto > header h1{
     width: 475px;
     height: 142px;
     line-height: 152px;
@@ -1371,13 +1377,17 @@ top: 53px
     -webkit-transition: -webkit-transform 200ms ease;
     transition: transform 200ms ease;
 }
+#welto > header h1 img{
+  position: absolute;
+  left: 87px;
+  top: 53px}
 
-#what > header h1.show{
+#welto > header h1.show{
     -webkit-transform: scale(1);
     transform: scale(1);
 }
 
-#what > header svg{
+#welto > header svg{
     -webkit-transform: scale(0);
     transform: scale(0);
     -moz-transform: scale(0.2);
@@ -1386,27 +1396,31 @@ top: 53px
     -moz-transition: -moz-transform 300ms ease;
     transform-origin: center;
 }
-#what > header svg.show{
+#welto > header svg.show{
     -webkit-transform: scale(1);
     transform: scale(1);
     -moz-transform: scale(5);
 }
 
-#what > div{
+#welto > div{
     width: 100%;
     padding-bottom: 60px;
     box-sizing: border-box;
     min-height: inherit;
-    background: url(../img/what_bg_grid.png) repeat center top;
+    background: url(../img/wel_bg_grid.png) repeat center top;
     position: relative;
     z-index: 10;
 }
-#what > div > h1{
-    position: absolute;
-    left: 21px;
-    top: 70px;
+#welto > div > h1{
+  position: absolute;
+  left: 21px;
+  top: 70px;
+  color:white;
+  font-size: 18px;
+  font-family: 'Pathway Gothic One',霞鹜文楷, sans-serif;
+  letter-spacing: 6px
 }
-#what > div > div{
+#welto > div > div{
     height: 1040px;
     padding-top: 300px;
     text-align: center;
@@ -1415,28 +1429,27 @@ top: 53px
     box-sizing: border-box;
 }
 
-#what .content{
+#welto .content{
     overflow: hidden;
+    color: white;
+    font-size: 18px;
     position: relative;
     height: 0;
-    width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     -webkit-transition: height 2000ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: height 2000ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-#what .content p{
-    height: 480px;
-    float: right;
+#welto .content p{
+    height: 700px;
+    text-align: center;
+    line-height: 40px
 }
 
-#what .content p:first-child{
-    margin-right: 120px;
-    margin-left: 60px;
-}
 
-#what .content.show{
-    height: 480px;
+#welto .content.show{
+    height: 700px;
 }
 
 /* news */
@@ -1742,13 +1755,6 @@ top: 53px
 }
 
 /* footer */
-#copy{
-    position: absolute;
-    left: 50%;
-    margin-left: -493px;
-    bottom: 225px;
-    z-index: 10;
-}
 
 footer{
     width: 100%;

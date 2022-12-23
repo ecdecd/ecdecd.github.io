@@ -33,7 +33,7 @@ $(function(){
     });
     $(window).on('load', function(){
         wrapper.animate({opacity: 1}, 600, function(){
-            if(PAGE_TYPE == "ACTORS" || PAGE_TYPE == "MUSIC" || PAGE_TYPE == "NOVEL" || PAGE_TYPE == "COMIC" || PAGE_TYPE == "ANIMATION" || PAGE_TYPE == "OTHER"){
+            if(PAGE_TYPE == "ELEMENT" || PAGE_TYPE == "MUSIC" || PAGE_TYPE == "NOVEL" || PAGE_TYPE == "COMIC" || PAGE_TYPE == "ANIMATION" || PAGE_TYPE == "OTHER"){
                 new honeyCombBG([
                     [0,2],[1,2],[1,1],[2,2],
                     [2,1],[3,3],[2,0],[3,1],

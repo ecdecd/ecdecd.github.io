@@ -21,3 +21,129 @@ top:25px}
 .pelement img{width: 50px;
 height: 50px;position: relative;
 display: inline-block}
+
+
+/*基础信息表格*/
+#chara {border-collapse: collapse;max-width: 500px;margin:0 auto;}
+#chara td, #chara th {border: 1px solid #ddd;padding: 6px;text-align: center;}
+#chara th {background-color: #14A7E2;color: white;}
+#chara td {background: white}
+
+
+
+/*wiki周期表*/
+
+.wikitable {
+    top:30px;
+    background-color: #f8f9fa;
+    color: #fff;
+    border-collapse: collapse;
+    text-align:center;
+    margin:0 auto;
+    background:transparent;
+    border:none;
+}
+.wikitable td{
+   border:none;
+   width:5px;
+   background-color:transparent;
+   margin:0;
+   padding:0;
+   border:none;
+}
+.wikitable span{
+    display:block;
+    width:9px;
+    height:9px;
+    overflow:hidden;
+    padding:0;
+    color:transparent;
+    font-size: 5px;
+    line-height:9px;
+}
+.wikielement{
+  empty-cells:hidden;
+  border:none;
+  padding:0;
+  border-spacing:1px;
+  border-collapse:separate;
+  margin:0;
+}
+
+
+
+/*tabs*/
+.tabs {
+  position: relative;
+	margin: 40px auto;
+	max-width: 800px;
+}
+
+.tabs input {
+	position: absolute;
+	z-index: 200;
+	width: 50px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+	opacity: 0;
+	cursor: pointer;
+}
+.tabs input#tab-2{left: 50px;}
+.tabs input#tab-3{left: 100px;}
+.tabs input#tab-4{left: 150px;}
+.tabs input#tab-5{left: 200px;}
+.tabs input#tab-6{left: 250px;}
+
+.tabs label {
+	background: #14A7E2;
+	font-size: 15px;
+	line-height: 40px;
+	height: 40px;
+	position: relative;
+	padding: 0 20px;
+    float: left;
+	display: block;
+	color: #14cce2;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 2px 0 2px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
+}
+
+.tabs label:after {
+    content: '';
+	background: #161616;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	display: block;
+}
+.tabs input:hover + label {background: #0D87B8;}
+.tabs input:checked + label { background: #161616;z-index: 8;}
+.clear-shadow {clear: both;}
+
+.content div {
+	background: #161616;
+  position: relative;
+  color: white;
+	padding: 20px 20px 20px 30px;
+	z-index: 1;
+  line-height: 2;
+		width: 100%;
+    box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+    border-radius: 0 3px 3px 3px;
+		display: none;
+}
+
+.tabs input.tab-selector-1:checked ~ .content .content-1,
+.tabs input.tab-selector-2:checked ~ .content .content-2,
+.tabs input.tab-selector-3:checked ~ .content .content-3,
+.tabs input.tab-selector-4:checked ~ .content .content-4,
+.tabs input.tab-selector-5:checked ~ .content .content-5,
+.tabs input.tab-selector-6:checked ~ .content .content-6{display: block;}
