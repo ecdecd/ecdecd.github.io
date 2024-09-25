@@ -1,0 +1,172 @@
+body {
+    font-family: "Microsoft YaHei",Arial, sans-serif;
+    -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 15px;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 16%;
+    min-width: 120px;
+    display: none;
+    z-index: 10;
+    opacity: 0.9;
+}
+.setting {
+    background-color: #f0f0f0;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 16%;
+    min-width: 120px;
+    display: none;
+    z-index: 10;
+    opacity: 0.9;
+}
+.sidebutton{
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  z-index: 30;
+  width: 56px;
+}
+
+#toggleSidebar {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 26px;
+  width: 40px;
+  z-index: 5;
+}
+#prevChapter{
+  position: fixed;
+  bottom: 10px;
+  right: 50%;
+  left: 0;
+  margin: auto;
+  height: 26px;
+  width: 80px;
+}
+#nextChapter{
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 50%;
+  margin: auto;
+  height: 26px;
+  width: 80px;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 700px;
+    min-width: 56%;
+    width: 90%;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    text-indent: 0;
+}
+
+#chapter li{
+  padding: 3px;
+}
+#chapter a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#novelText {
+    font-size: 18px;
+    white-space: pre-wrap;
+    text-indent: 2em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#chapterQuote {
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 4px solid #000;
+  border-radius: 0 5px 5px 0;
+  background-color: #bbb;
+  color: #444;
+  font-size: 16px;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .content {
+
+  }
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+.sidebar.dark-mode{
+  background-color: #444;
+}
+.setting.dark-mode{
+  background-color: #444;
+}
+
+button{
+  background-color: #aaa;
+  border: none;
+  color: white;
+  padding: 3px;
+  margin: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius:20px;
+  cursor: pointer;
+}
+
+select, input {
+    padding: 8px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 16px;
+    margin: 4px;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+#bgColor{
+  height: 38px;
+
+}
+#fontSize{
+  width: 40px;
+}
