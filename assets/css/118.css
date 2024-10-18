@@ -1,0 +1,659 @@
+/*调用漫黑字体*/
+@font-face {
+  font-family: "LXGW M";
+  src: url('../fonts/LXGWMarkerGothic-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  font: 18px "Microsoft YaHei", 思源黑体, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+  color: #222;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  background: white;
+  overflow: hidden;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  text-align: justify;
+  transition: color 0.6s, background-color 0.6s, border 0.6s;
+  display: flex;
+  height: 100vh;
+
+}
+
+ecd-story {
+  display: block;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+ecd-passage {
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 145%;
+  flex-grow: 1;
+  padding: 20px;
+  z-index: 0;
+}
+ecd-passage p{
+  text-indent: 2em;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: "LXGW M", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+}
+
+a {
+  font-weight: 700;
+  color: #40826d;
+  transition: color 0.6s, background-color 0.6s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: black;
+  transition: color 0.1s, background-color 0.1s;
+}
+
+a:active {
+  color: lime
+}
+
+[hidden],
+template,
+ecd-storydata {
+  display: none
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+}
+
+/* normalize.css v8.0.1 */
+details,
+main {
+  display: block
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted
+}
+
+b,
+strong {
+  font-weight: bolder
+}
+
+small {
+  font-size: 80%
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+  top: -.5em
+}
+
+img {
+  border-style: none
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0
+}
+
+button,
+input {
+  overflow: visible
+}
+
+button,
+select {
+  text-transform: none
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance: button
+}
+
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0
+}
+
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring,
+button:-moz-focusring {
+  outline: ButtonText dotted 1px
+}
+
+fieldset {
+  padding: .35em .75em .625em
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal
+}
+
+progress {
+  vertical-align: baseline
+}
+
+textarea {
+  overflow: auto
+}
+
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit
+}
+
+/* 像素画平滑展示 */
+.pixel {
+  image-rendering: pixelated;
+  -moz-image-rendering: pixelated;
+  -webkit-image-rendering: pixelated;
+}
+
+/* 黑暗 */
+
+body.dark {
+  background: black;
+  color: white;
+}
+
+.dark a {
+  transition: color 0.6s, background-color 0.6s;
+}
+
+.dark a:hover {
+  color: white;
+  transition: color 0.1s, background-color 0.1s;
+}
+
+.dark a:active {
+  color: lime
+}
+
+.dark .modal-content {
+  background: black;
+  color: white;
+}
+/*侧边栏*/
+#sidebar {
+  width: 250px;
+  min-width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  transition: all 0.3s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+  position: relative;
+}
+#sidebar.collapsed {
+  width: 40px;
+  min-width: 40px;
+}
+#sidebar-toggle {
+  background-color: #34495e;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 20px;
+  height: 40px;
+  text-align: left;
+  cursor: pointer;
+}
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar li {
+  margin: auto;
+  cursor: pointer; 
+  white-space: nowrap;
+  background-color: #34495e;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  height: 20px;
+  text-align: left;
+  font-family: "LXGW M";
+}
+#sidebar li:hover {
+  background-color: #0056b3;
+}
+#sidebar li:active {
+  background-color: #4456b3;
+}
+#sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+/*血条（数据条）*/
+.barstate{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.bar-container {
+  flex: 1; 
+  background-color: #d0d0d0;
+  border-radius: 3px;
+  margin: 17px 10px;
+}
+.bar {
+  height: 6px;
+  border-radius: 3px;
+
+  line-height: 6px;
+}
+
+.bar-icon{
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  height: 20px;
+  text-align: left;
+  width: 20px;
+}
+
+/*血条数字*/
+#bar-numbers{
+  z-index: 2;
+  pointer-events: none;
+  position: absolute;
+}
+.bar-number{
+  border: 1px solid gray;
+  height: 30px;
+	background-color: #202020;
+	line-height: 30px;
+	padding: 0 3px;
+  position: absolute;
+	margin: 4px 0 8px 6px;
+	width: fit-content;
+  display: none;
+  text-wrap: nowrap;
+  font-size: 14px;
+}
+#bar-number2{
+  top:40px;
+}
+#bar-number3{
+  top:80px;
+}
+
+/* 模态框 */
+.modal-button.active {
+  color: #66ffff;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 3; 
+  left: 250px;
+  top: 0;
+  width: calc(100% - 250px);
+  height: 100%; 
+  overflow-y: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  transition: left 0.3s, width 0.3s; 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin:20px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1em;
+}
+.modal-close:hover,
+.modal-close:focus {
+  color: #40826d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 模态框内图标 */
+.modal-icon{
+  padding: 10px;
+}
+
+/* 社交 */
+.social-icon{
+  padding-right:10px;
+}
+
+.social-main{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.social-main table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.social-main th, .social-main td {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 10px;
+}
+
+.social-main td {
+  font-size: .75em;
+}
+.social-main th {
+  color: white;
+}
+/* 存档 */
+.slot {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.slot-name {
+  font-weight: bold;
+  margin-right: 10px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.slot-code {
+  font-size: .5em;
+  position: absolute;
+  bottom: 1px;
+  left: 10px;
+}
+.slot-time {
+  font-size: .5em;
+  position: absolute;
+  top: 1px;
+  left: 10px;
+}
+.slot-buttons{
+  display: flex;
+}
+.slot-button {
+  background-color: #40826d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.slot-button:hover {
+  background-color: #45a049;
+}
+.slotfile-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.slot button {
+  border: none;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  border-radius: 3px;
+}
+
+/*设置框*/
+.set-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 10px;
+}
+
+.set-grid div {
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.set-grid div:hover {
+  background-color: #40826d;
+}
+
+/*滚动新闻*/
+.scroll-div {
+  position: relative;
+  overflow: hidden;
+  height: 30px;
+  margin: auto;
+  background: repeating-linear-gradient(to left, #34495e, #2c3e50);
+  font-size: 16px;
+}
+
+.scroll-div p {
+  position: absolute;
+  margin: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* 提示框 */
+/* 使用例： <span class="tip" tips="告别">再见</span> */
+.tip {
+  position: relative;
+  border-bottom: 1px dotted #3c3c3c;
+}
+
+.tip:before {
+  content: attr(tips);
+  position: absolute;
+  background-color: #3c3c3c;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  line-height: 1.1;
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .5s;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8em;
+  visibility: hidden;
+  white-space: nowrap;
+  text-indent: 0;
+}
+
+.tip:after {
+  content: "";
+  position: absolute;
+  bottom: 75%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  opacity: 0;
+  transition: opacity .5s;
+  border-color: #3c3c3c transparent transparent transparent;
+  visibility: hidden;
+}
+
+.tip:hover:before,
+.tip:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*注音（字号）*/
+rt {
+  font-size: 0.7em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 760px) {
+  ecd-story {
+    max-width: 100%; 
+    height: 100%;
+    left: 40px;
+  }
+  .set-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media screen and (max-width:500px) {
+  ecd-story {
+    font-size: .8em
+  }
+  .set-grid {
+    grid-template-columns: 1fr;
+  }
+  footer{
+    height: 24px;
+  }
+  .scroll-div {
+    height: 24px;
+    font-size: 14px;
+  }
+  .scroll-div p {
+    line-height: 24px;
+  }
+  .social-main{
+    grid-template-columns: 1fr;
+  }
+}

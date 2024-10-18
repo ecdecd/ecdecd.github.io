@@ -1,0 +1,177 @@
+/* 可折叠的左侧菜单 */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  #sidebar.collapsed {
+    width: 50px;
+  }
+  
+  #sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #sidebar a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #sidebar a:hover {
+    background-color: #555;
+  }
+  
+  /* 自动滚动头图 */
+  #header {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+  }
+  
+  #header .slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: slideshow 10s infinite;
+  }
+  
+  #header .slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @keyframes slideshow {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* 可滚动或按键切换的下属栏目 */
+  #main {
+    padding-top: 50px;
+  }
+  
+  .subcategories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .subcategories ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .subcategories a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .subcategories a:hover {
+    background-color: #eee;
+  }
+  
+  .games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .game {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+  
+  .game img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .game h3 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .game p {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  /* 回到顶部按钮 */
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  #back-to-top:hover {
+    opacity: 1;
+  }
+  
+  /* 夜间模式按钮 */
+  #night-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  #night-mode-toggle:hover {
+    opacity: 1;
+  }

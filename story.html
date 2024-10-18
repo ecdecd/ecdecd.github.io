@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECD阅读器（嘘）</title>
+    <link rel="stylesheet" href="assets/css/story.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h2>作品</h2>
+            <select id="novelSelect">
+                <option value="novel1">分析侦探</option>
+                <option value="novel2">废物限定召唤</option>
+                <option value="novel3">文案存放</option>
+                <option value="novel4">设定记录</option>
+            </select>
+            <h2>目录</h2>
+            <div id="chapter"></div>
+        </div>
+        <div class="setting" id="setting">
+            <h2>设置</h2>
+            <label for="fontSize">字号调整：</label>
+            <input type="number" id="fontSize" value="18" min="12" max="30">
+            <br>
+            <label for="fontFamily">字体调整：</label>
+            <select id="fontFamily">
+                <option value="Microsoft YaHei">默认</option>
+                <option value="SimSun">宋体</option>
+                <option value="KaiTi">楷体</option>
+            </select>
+            <br>
+            <label for="bgColor">背景颜色：</label>
+            <input type="color" id="bgColor" value="#ffffff">
+        </div>
+        <div class="sidebutton">
+          <button id="scrollToTop" style="display:none;">回到顶部</button>
+          <button id="toggleSetting">其他设置</button>
+          <button id="darkButton">文字颜色</button>
+        </div>
+        <div>
+          <button id="prevChapter" style="display:none;">◀ 上一章</button>
+          <button id="toggleSidebar">目录</button>
+          <button id="nextChapter" style="display:none;">下一章 ▶</button>
+        </div>
+        <div class="content" id="contentArea">
+            <h1 id="novelTitle">小说标题</h1>
+            <h2 id="chapterTitle">章节标题</h2>
+            <div id="stats"></div>
+            <div id="chapterQuote">本章引句</div>
+            <div id="novelText">
+                <p>正文。</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/story.js"></script>
+</body>
+</html>

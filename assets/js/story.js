@@ -200,5 +200,5 @@ function calculateStats(content) {
     const totalCount = chineseCharacters.length + numbers.length + englishWords.length;// 总字数
     const readingSpeed = 450; // 每分钟300个字符的阅读速度
     const readingTime = Math.ceil(totalCount / readingSpeed);
-    document.getElementById('stats').innerText = `本章字数： ${totalCount} 字 丨 估计阅读时间： ${readingTime} 分钟`;
+    document.getElementById('stats').innerText = `本章字数：${totalCount} 字丨估计阅读时间：${readingTime} 分钟`;
 }
