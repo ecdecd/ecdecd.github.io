@@ -10,18 +10,29 @@
 	<link rel="stylesheet" href="assets/css/118.css">
 	<link href="assets/fonts/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/fonts/css/solid.min.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
 </head>
 
 <body>
 	<div id="sidebar" class="collapsed">
         <button id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
-        <ul>
+		<div id="states"></div>
+		<div class="sidebar-choice"><ul>
 			<li><div class="modal-button" data-modal="ass-modal"><i class="fa-solid fa-user"></i>　角色状态</div></li>
 			<li><div class="modal-button" data-modal="box-modal"><i class="fa-solid fa-suitcase"></i>　所持物品</div></li>
 			<li><div class="modal-button" data-modal="social-modal"><i class="fa-solid fa-circle-nodes"></i>　社交关系</div></li>
+			<li><div class="modal-button" data-modal="scene-modal"><i class="fa-solid fa-image"></i>　场景回忆</div></li>
 			<li><div class="modal-button" data-modal="save-modal"><i class="fa-solid fa-floppy-disk"></i>　存档管理</div></li>
 			<li><div class="modal-button" data-modal="set-modal"><i class="fa-solid fa-gear"></i>　游戏设置</div></li>
-		</ul>
+		</ul></div>
+		<div class="sidebar-imgbox">
+			<img class="sidebar-pix pixel"></img>
+			<img class="sidebar-pix pixel"></img>
+			<img class="sidebar-pix pixel"></img>
+			<img class="sidebar-pix pixel"></img>
+			<img class="sidebar-pix pixel"></img>
+			<img class="sidebar-pix pixel"></img>
+		</div>
     </div>
 	<ecd-story tags></ecd-story>
 <ecd-storydata name="换羽变装" startnode="1" ifid="61138B38-A213-4DFF-9D86-DE6D2EF45ADA" zoom="1"options="" hidden>
@@ -46,7 +57,7 @@
 
 关于某个“异类”……某些“异类”的故事。
 
-[[序章 存在合理|0]]</ecd-passagedata><ecd-passagedata pid="2" name="0" tags="" position="225,100" size="100,100"><p></p>
+[[序章 存在合理|A]]</ecd-passagedata><ecd-passagedata pid="2" name="A" tags="" position="225,100" size="100,100">&lt;h1&gt;序章 存在合理&lt;/h1&gt;
 
 我时常回忆。
 
@@ -56,17 +67,99 @@
 
 更简单的，回忆“过去”本身。
 
-[[走一步|0.1]]
+十八岁的过去，十五岁的过去，十二岁的过去。
 
-[[首页|Start]]</ecd-passagedata><ecd-passagedata pid="3" name="0.1" tags="" position="350,100" size="100,100"><p></p>
+更久远的过去，出生时的过去。
 
-迈开脚步向前……
+将自己并不漫长的人生轨迹细细数来，总会得到一个“仍然如此”的结论。
 
-我还能做到吗？
+由此看来，我的“回忆”并无价值。
 
-[[回忆|0]]
+人生价值又在何处，我仍然有迷茫的机会。
 
-[[首页|Start]]</ecd-passagedata><ecd-passagedata pid="4" name="states" tags="" position="475,100" size="100,100">&lt;%
+仍然有吧。
+
+还未踏入大学的我，是这样想的。
+
+[[去往大学|A-1]]</ecd-passagedata><ecd-passagedata pid="3" name="A-1" tags="" position="350,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+本地最好的综合性大学。
+
+&lt;!--佩里俄杜斯·格瑞克斯 Periodus Grex 周期-族--&gt;
+
+这个“最好”体现在哪里？至少从校门看不出来。
+
+我仰头看着端正的校名。
+
+“佩里俄杜斯大学”。
+
+第一直觉——循规蹈矩的代名词。
+
+“打扰了，请问你是这里的学生吗？”
+
+清甜的询问从身后传来。
+
+是我拖着行李箱站在校门发呆显得像被学校扫地出门的样子吗？
+
+我回头，看见了绿发的头顶。
+
+……哪里来的小孩啊。
+
+&lt;% s.Berymeet=true %&gt;
+
+[[“没错，我是。”|A-1-1]]
+
+[[“你是这里的学生吗？”|A-1-2]]</ecd-passagedata><ecd-passagedata pid="4" name="A-1-1" tags="" position="475,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+就算还没去报道，毫无疑问，我已经被佩里俄杜斯大学录取了。
+
+&lt;% s.Berylove++ %&gt;
+
+[[TBC.]]</ecd-passagedata><ecd-passagedata pid="5" name="A-1-2" tags="" position="600,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+比问题回答问题更进一步的，用同样的问题回答问题。
+
+说不清楚是戒备还是单纯顺口，我这样回应。
+
+大概知道现在的距离和我对视非要使劲仰头不可，这孩子退了一步盯着我：“咦，难道我看起来像是吗？”
+
+&lt;a0.A-1-2-1&gt;“确实不像。”&lt;/a&gt;
+
+&lt;a0.A-1-2-2&gt;“也许学校会破格招录年轻天才……我猜。”&lt;/a&gt;
+
+&lt;%
+	$(function() {
+		$(&#39;.A-1-2-1, .A-1-2-2&#39;).click(function() {
+			var className = $(this).attr(&#39;class&#39;);
+			$(&#39;.A-1-2-1, .A-1-2-2&#39;).not(this).hide();
+			$(this).replaceWith(window.story.render(className));
+		});
+	});
+%&gt;</ecd-passagedata><ecd-passagedata pid="6" name="A-1-2-1" tags="" position="725,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+“确实不像。”
+
+不管是身高还是声音，都更像是中学生……初中生吧。
+
+[[TBC.]]</ecd-passagedata><ecd-passagedata pid="7" name="A-1-2-2" tags="" position="850,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+“什么年龄该做什么事”的话题没必要讨论。
+
+天才总是会存在的。
+
+“也许学校会破格招录年轻天才……我猜。”
+
+“还不如猜是附近中学的学生呢——当然啦，我不是。”
+
+&lt;% s.Berylove++ %&gt;
+
+[[TBC.]]</ecd-passagedata><ecd-passagedata pid="8" name="TBC." tags="" position="975,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+未完。
+
+**……这不是啥也没写吗！**
+
+[[首页|Start]]</ecd-passagedata><ecd-passagedata pid="9" name="states" tags="" position="1100,100" size="100,100">&lt;%
 	s.nowHealth = Math.max(0, Math.min(s.nowHealth, s.maxHealth));
     s.nowMana = Math.max(0, Math.min(s.nowMana, s.maxMana));
     s.nowS = Math.max(0, Math.min(s.nowS, s.maxS));
@@ -146,15 +239,19 @@
 	&lt;div class=&quot;bar-container&quot;&gt;
 		&lt;%= &#39;&lt;div id=&quot;s-bar&quot; class=&quot;bar&quot; style=&quot;width:&#39; + percent3 + &#39;%;background-color:&#39; + color3 + &#39;&quot;&gt;&lt;/div&gt;&#39; %&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="5" name="assayer" tags="" position="600,100" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-ranking-star&quot;&gt;&lt;/i&gt;没有成就。</ecd-passagedata><ecd-passagedata pid="6" name="box" tags="" position="725,100" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-q&quot;&gt;&lt;/i&gt;持有夸克：&lt;%=s.quark%&gt;
-&lt;% if(_.random(1, 6) &gt; 5){ %&gt;
-如果看到这句话说明运气不错。&lt;% } %&gt;</ecd-passagedata><ecd-passagedata pid="7" name="social" tags="" position="850,100" size="100,100">&lt;div class=&quot;social-main&quot;&gt;
+&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="10" name="assayer" tags="" position="1225,100" size="100,100">&lt;ul&gt;
+	&lt;li&gt;&lt;i class=&quot;modal-icon fa-solid fa-graduation-cap&quot;&gt;&lt;/i&gt;佩里俄杜斯大学新生。&lt;/li&gt;
+	&lt;li&gt;&lt;i class=&quot;modal-icon fa-solid fa-ranking-star&quot;&gt;&lt;/i&gt;没有阶段性成就。&lt;/li&gt;
+&lt;/ul&gt;</ecd-passagedata><ecd-passagedata pid="11" name="box" tags="" position="100,225" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-q&quot;&gt;&lt;/i&gt;持有夸克：&lt;%=s.quark%&gt;
+&lt;% if(_.random(1, 6) == 1){ %&gt;
+如果看到这句话说明运气不错。1d6的水平吧？&lt;% } %&gt;</ecd-passagedata><ecd-passagedata pid="12" name="social" tags="" position="225,225" size="100,100">&lt;h4&gt;重要角色&lt;/h4&gt;
+&lt;div class=&quot;social-main&quot;&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #40e0d0&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-paper-plane&quot;&gt;&lt;/i&gt;柏律 Bery
+			&lt;i class=&quot;social-icon fa-solid fa-paper-plane&quot;&gt;&lt;/i&gt;柏律
 		&lt;/th&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;学生（至少在学校）&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;柏律&lt;% if(s.Berylove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;还没入学的同学&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;柏律&lt;% if(s.Berymeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;宝石&lt;/td&gt;
             &lt;td&gt;飞行&lt;/td&gt;
@@ -165,10 +262,10 @@
     &lt;/table&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: gray&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-martini-glass&quot;&gt;&lt;/i&gt;阿林 Alum
+			&lt;i class=&quot;social-icon fa-solid fa-martini-glass&quot;&gt;&lt;/i&gt;阿林
 		&lt;/th&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;可能是演员？&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿林&lt;% if(s.Alumlove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;明星吗？&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿林&lt;% if(s.Alummeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;优雅&lt;/td&gt;
             &lt;td&gt;工业&lt;/td&gt;
@@ -180,10 +277,10 @@
     &lt;/table&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #ffa500&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-skull&quot;&gt;&lt;/i&gt;阿耳森 Arsen
+			&lt;i class=&quot;social-icon fa-solid fa-skull&quot;&gt;&lt;/i&gt;阿耳森
 		&lt;/th&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;在搞行为艺术？&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿耳森&lt;% if(s.Arsenlove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿耳森&lt;% if(s.Arsenmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;“黄金”&lt;/td&gt;
             &lt;td&gt;色彩&lt;/td&gt;
@@ -194,10 +291,10 @@
     &lt;/table&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #563c5c&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-suitcase-medical&quot;&gt;&lt;/i&gt;伊俄德 Iod
+			&lt;i class=&quot;social-icon fa-solid fa-suitcase-medical&quot;&gt;&lt;/i&gt;伊俄德
 		&lt;/th&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;医生还是护士？&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;伊俄德&lt;% if(s.Iodlove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;医生还是学者？&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;伊俄德&lt;% if(s.Iodmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;消毒&lt;/td&gt;
             &lt;td&gt;羽毛&lt;/td&gt;
@@ -208,10 +305,10 @@
     &lt;/table&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #4682b4&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-pen-fancy&quot;&gt;&lt;/i&gt;俄斯弥 Osmi
+			&lt;i class=&quot;social-icon fa-solid fa-pen-fancy&quot;&gt;&lt;/i&gt;俄斯弥
 		&lt;/th&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;作家……？&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;俄斯弥&lt;% if(s.Osmilove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;俄斯弥&lt;% if(s.Osmimeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;书信&lt;/td&gt;
             &lt;td&gt;重量&lt;/td&gt;
@@ -222,10 +319,10 @@
     &lt;/table&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #a0522d&quot;&gt;
-			&lt;i class=&quot;social-icon fa-solid fa-person-military-rifle&quot;&gt;&lt;/i&gt;达耳谟斯 Darms
+			&lt;i class=&quot;social-icon fa-solid fa-person-military-rifle&quot;&gt;&lt;/i&gt;达耳谟斯
 		&lt;/th&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;警察（真的吗）&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;达耳谟斯&lt;% if(s.Darmslove &gt; 0){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;达耳谟斯&lt;% if(s.Darmsmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
             &lt;td width=&quot;50%&quot;&gt;电话&lt;/td&gt;
             &lt;td&gt;条理&lt;/td&gt;
@@ -234,20 +331,47 @@
             &lt;td&gt;狼犬&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
-&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="8" name="footer" tags="" position="975,100" size="100,100">&lt;%
+&lt;/div&gt;
+&lt;h4&gt;其他角色&lt;/h4&gt;
+&lt;div class=&quot;social-other&quot;&gt;
+	&lt;table&gt;
+        &lt;tr&gt;&lt;th style=&quot;background-color: #40826d&quot;&gt;
+			&lt;i class=&quot;social-icon fa-solid fa-palette&quot;&gt;&lt;/i&gt;克戎
+		&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;迷之社团长&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+	&lt;table&gt;
+        &lt;tr&gt;&lt;th style=&quot;background-color: #00008b&quot;&gt;
+			&lt;i class=&quot;social-icon fa-solid fa-book-medical&quot;&gt;&lt;/i&gt;阿斯塔特
+		&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;伊俄德的亲戚？&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+	&lt;table&gt;
+        &lt;tr&gt;&lt;th style=&quot;background-color: #006400&quot;&gt;
+			&lt;i class=&quot;social-icon fa-solid fa-book&quot;&gt;&lt;/i&gt;哈西
+		&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;图书馆里奇怪的家伙&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="13" name="scene" tags="" position="350,225" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-expand&quot;&gt;&lt;/i&gt;没有场景可供回忆。</ecd-passagedata><ecd-passagedata pid="14" name="footer" tags="" position="475,225" size="100,100">&lt;%
 	$(document).ready(function () {
 	var messages = [
-		&#39;老是盯着这里看没啥意思，这里都没写几句话。&#39;,
+		&#39;老是盯着这里看没啥意思，没写几句话。&#39;,
 		&#39;个人故事拎出来成为1/n攻略对象（存疑），阿林：我没意见。&#39;,
-		&#39;怎么找到这个超级简陋网页框架的？应该不是来玩游戏的吧，哈哈。&#39;,
+		&#39;令人惊骇的元素事实：本作没有任何一个元素出场。&#39;,
+		&#39;怎么想到来看这个超级简陋网页框架的？应该不是来玩游戏的吧，哈哈。&#39;,
+		&#39;看到什么BUG欢迎随时拷打作者。不知道在哪儿？那是怎么找到这里的？&#39;,
+		&#39;唯一指定邮箱： 024@elecode.wiki（铬的邮箱地址）&#39;,
+		&#39;元素编码！&#39;,
 		&#39;今天天气怎么样？要出门转转吗？&#39;,
-		&#39;老是待在学校里见不到什么人吧。&#39;,
 		&#39;ᴇʟᴇᴄᴏᴅᴇ ᴘʀᴏᴊᴇᴄᴛ&#39;,
 		&#39;不要忘记存档哦。&#39;,
+		&#39;保存和读取不会影响已修改存档的名字。但是删除会回到默认名称。&#39;,
+		&#39;虽说有游戏设置，现在除了黑白切换之外啥都做不到。&#39;,
 		&#39;下载和上传存档都是所有存档一起，拿不准的话可以在上传前再下载备份一遍。&#39;,
-		&#39;Ｓ值是什么？Stamina还是Sadism呢？&#39;,
-		&#39;手上只有&#39;+ s.quark +&#39;夸克就觉得足够了吗？&#39;,
-		&#39;没有自动恢复状态这种好事……会有吗？&#39;
+		&#39;没有自动恢复状态这种好事……会有吗？&#39;,
+		&#39;有生命数据，该不会是RPG吧……？不是？&#39;,
+		&#39;模棱两可的“能量”。超自然力量……还是单纯的体能？&#39;,
+		&#39;Ｓ值是什么？Stamina还是Sadism呢？&#39;
 	];
 
 	var shuffledMessages = messages.sort(() =&gt; Math.random() - 0.5);
@@ -283,6 +407,13 @@
 			<div id="social"></div>
 		</div>
 	</div>
+	<div id="scene-modal" class="modal">
+		<div class="modal-content">
+			<span class="modal-close"><i class="fa-solid fa-xmark"></i></span>
+			<h2>场景回忆</h2>
+			<div id="scene"></div>
+		</div>
+	</div>
 	<div id="save-modal" class="modal">
 		<div class="modal-content">
 			<span class="modal-close"><i class="fa-solid fa-xmark"></i></span>
@@ -303,10 +434,7 @@
 			<h2>游戏设置</h2>
 			<div class="set-grid">
 				<div id="darkButton"><i class="fa-solid fa-circle-half-stroke"></i>　显示模式</div>
-				<div><i class="fa-solid fa-circle-question"></i>　还没想好</div>
-				<div><i class="fa-solid fa-circle-question"></i>　什么东西</div>
-				<div><i class="fa-solid fa-circle-question"></i>　总会有的</div>
-				<div><i class="fa-solid fa-circle-question"></i>　大概的吧</div>
+				<div id="startButton"><i class="fa-solid fa-refresh"></i>　重新开始</div>
 			</div>
 		</div>
 	</div>

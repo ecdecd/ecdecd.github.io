@@ -13,6 +13,18 @@ $('#darkButton').on('click', function () {
   localStorage.setItem('darkMode', isDarkMode);
 });
 
+//重新开始
+function startStory() {
+  const userConfirmed = confirm("确定要重新开始吗？");
+  if (userConfirmed) {
+      story.show("Start");
+  }
+}
+document.addEventListener("DOMContentLoaded", function() {
+  const startButton = document.getElementById("startButton");
+  startButton.addEventListener("click", startStory); 
+});
+
 
 //侧边栏折叠
 // 首次加载时，更新所有模态框位置
@@ -176,7 +188,6 @@ function loadSlot(slotId) {
   const save = saves[slotId];
   if (save && save.hash) {
     window.story.restore(save.hash);
-    updateBars();
   }
 }
 
@@ -189,9 +200,10 @@ function deleteSlot(slotId) {
 }
 
 function renameSlot(slotId) {
-  const newName = prompt(`请输入存档 ${saves[slotId].name} 的新名称:`, saves[slotId] ?.name || `存档 ${slotId}`);
+  const save = saves[slotId] || { name: `存档 ${slotId}` };
+  const newName = prompt(`请输入存档 ${save.name} 的新名称:`, save.name);
   if (newName) {
-    saves[slotId] = saves[slotId] || {};
+    saves[slotId] = saves[slotId] || {}; 
     saves[slotId].name = newName;
     localStorage.setItem('saves', JSON.stringify(saves));
     renderSlots();
@@ -235,47 +247,78 @@ function importSaves(event) {
 renderSlots();
 
 
-//建立侧边栏血条
-$(document.createElement('div'))
-  .attr('id', 'states')
-  .insertAfter('#sidebar-toggle');
-
-//血条悬浮框定位
+//侧边栏像素人随机显示
 $(document).ready(function() {
-  function positionBarNumbers() {
-      var $sidebar = $('#sidebar');
-      var $states = $('#states');
-      var $barNumbers = $('#bar-numbers');
-      
-      var sidebarScrollTop = $sidebar.scrollTop();
-      var statesOffset = $states.offset();
-      var sidebarOffset = $sidebar.offset();
-      
-      $barNumbers.css({
-          'left': 40,
-          'top': 40 - sidebarScrollTop,
-      });
-  }
-  positionBarNumbers();
-  $('#sidebar').scroll(positionBarNumbers);
+  const sidebarPix = [
+      'assets/img/pix/004.png',
+      'assets/img/pix/013.png',
+      'assets/img/pix/033.png',
+      'assets/img/pix/053.png',
+      'assets/img/pix/076.png',
+      'assets/img/pix/110.png',
+  ];
+
+  const shuffledPix = sidebarPix.sort(() => Math.random() - 0.5);
+
+  $('.sidebar-pix').each(function(index) {
+      if (index < shuffledPix.length) {
+          $(this).attr('src', shuffledPix[index]);
+      }
+      const randomDelay = Math.random() * 2;
+      $(this).css('animationDelay', randomDelay + 's');
+  });
 });
 
 
 //段落渲染为元素
 $(window).on('sm.passage.shown', function () {
-  $('#states').html(window.story.render("states"));
+  renderToSelector("#states", "states");
+
 });
 
 $(window).on('sm.passage.shown', function () {
-  $('#assayer').html(window.story.render("assayer"));
+  renderToSelector("#assayer", "assayer");
 });
 
 $(window).on('sm.passage.shown', function () {
-  $('#box').html(window.story.render("box"));
+  renderToSelector("#box", "box");
 });
 
 $(window).on('sm.passage.shown', function () {
-  $('#social').html(window.story.render("social"));
+  renderToSelector("#social", "social");
+});
+
+$(window).on('sm.passage.shown', function () {
+  renderToSelector("#scene", "scene");
 });
 
 $(function () {window.story.render("footer");});
+
+
+//ASCII画
+const ascii = {
+  dress: `<div class="asciibox"><div class="ascii">
+⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀
+⠀⠀⠀⢀⣯⢤⣄⣀⣀⣀⣀⣘⣻⣿⢿⡇
+⠀⠀⢀⡼⠀⠀⣸⠁⢸⠈⠘⡇⠸⡄⠈⠹⡆
+⠀⠀⡞⢠⠂⢀⡇⠀⢸⠀⠀⡇⠀⢻⠀⠀⠘⡆
+⠀⡞⠐⠃⠀⣼⠁⠀⢸⠀⠀⢿⠀⠸⣆⠀⠀⠸⡄
+⢀⡟⠀⠀⢀⡇⠀⠀⢸⠀⠀⢸⡇⠀⢹⠀⠀⠘⣇
+⠘⠯⣖⡤⣼⣃⡀⠀⠄⠀⠀⠘⡇⢀⣸⡦⣖⡮⠟
+⠀⠀⢸⠛⠿⡿⣿⣭⣥⠭⣭⣬⣽⣷⠿⠛⣿
+⠀⠀⢸⠀⠀⡇⠈⢩⡿⠀⠘⣏⠉⠸⡄⠀⣿
+⠀⠀⢸⡆⢸⠁⠠⠞⡇⠀⠀⡟⢦⠀⢳⠀⡟
+⠀⠀⠀⣷⠸⠀⠀⣴⠁⠀⠀⢳⣄⠀⠸⣰⡇
+⠀⠀⠀⣿⠆⣀⡾⡇⠀⠀⠀⠀⡟⢦⡀⢹⡇
+⠀⠀⠀⡇⠐⠋⠁⡇⠀⠀⠀⠀⡇⠈⠑⠀⡇
+⠀⠀⠀⠑⠒⠒⠋⠁⠀⠀⠀⠀⠉⠓⠒⠒⠃
+  </div></div>`,
+  none: `<div class="asciibox"><div class="ascii">
+  </div></div>`
+};
+
+
+//段落过渡，页面淡入
+$(document).on('sm.passage.showing', function() {
+  $("ecd-passage").hide(0).fadeIn(300);
+});

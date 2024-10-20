@@ -36,6 +36,7 @@ ecd-story {
   display: block;
   flex-grow: 1;
   overflow-y: auto;
+  max-height: calc(100% - 30px);
 }
 
 ecd-passage {
@@ -102,6 +103,11 @@ hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 code,
@@ -274,8 +280,7 @@ body.dark {
   background-color: #2c3e50;
   color: white;
   transition: all 0.3s;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   z-index: 1;
   position: relative;
 }
@@ -294,9 +299,12 @@ body.dark {
   text-align: left;
   cursor: pointer;
 }
+.sidebar-choice{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100% - 212px);
+}
 #sidebar ul {
-  list-style-type: none;
-  padding: 0;
   margin: 0;
 }
 
@@ -321,6 +329,31 @@ body.dark {
 #sidebar a {
   color: white;
   text-decoration: none;
+}
+.sidebar-imgbox{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+}
+.sidebar-pix{
+  width: 40px;
+  animation: bounce 2s infinite;
+  pointer-events: none;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
 }
 
 /*血条（数据条）*/
@@ -355,6 +388,8 @@ body.dark {
   z-index: 2;
   pointer-events: none;
   position: absolute;
+  left: 40px;
+  top: 40px;
 }
 .bar-number{
   border: 1px solid gray;
@@ -426,30 +461,31 @@ body.dark {
   padding-right:10px;
 }
 
-.social-main{
+.social-main, .social-other{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   text-align: center;
 }
 
-.social-main table{
+#social table{
   width: 100%;
   border-collapse: collapse;
 }
 
-.social-main th, .social-main td {
+#social th, #social td {
   border: 1px solid gray;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
 }
 
-.social-main td {
-  font-size: .75em;
+#social td {
+  font-size: .8em;
 }
-.social-main th {
+#social th {
   color: white;
 }
+
 /* 存档 */
 .slot {
   border: 1px solid #ddd;
@@ -613,23 +649,32 @@ rt {
   font-size: 0.7em;
 }
 
-
-
-
-
-
-
-
-
-
+/*ASCII画*/
+.asciibox{
+  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  background-color: #a9a9a9;
+  border-radius: 40px;
+}
+.ascii{
+  font-family: monospace;
+  white-space: pre;
+  font-size: 0.6em;
+  line-height: 1.5;
+}
 
 
 
 @media screen and (max-width: 760px) {
   ecd-story {
     width: calc(100% - 40px); 
-    position: fixed;
     left: 40px;
+    position: absolute;
+  }
+  .social-main, .social-other{
+    font-size: .8em;
   }
   .set-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -638,7 +683,11 @@ rt {
 }
 @media screen and (max-width:500px) {
   ecd-story {
-    font-size: .9em;
+    font-size: .85em;
+    max-height: calc(100% - 24px);
+  }
+  .social-main, .social-other{
+    grid-template-columns: 1fr;
   }
   .set-grid {
     grid-template-columns: 1fr;
@@ -652,8 +701,5 @@ rt {
   }
   .scroll-div p {
     line-height: 24px;
-  }
-  .social-main{
-    grid-template-columns: 1fr;
   }
 }
