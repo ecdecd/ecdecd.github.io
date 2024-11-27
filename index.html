@@ -7,10 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="renderer" content="webkit">
-	<link rel="stylesheet" href="assets/css/118.css">
 	<link href="assets/fonts/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/fonts/css/solid.min.css" rel="stylesheet">
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+	<link rel="stylesheet" href="assets/css/gal.css">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 </head>
 
 <body>
@@ -21,10 +22,14 @@
 			<li><div class="modal-button" data-modal="ass-modal"><i class="fa-solid fa-user"></i>　角色状态</div></li>
 			<li><div class="modal-button" data-modal="box-modal"><i class="fa-solid fa-suitcase"></i>　所持物品</div></li>
 			<li><div class="modal-button" data-modal="social-modal"><i class="fa-solid fa-circle-nodes"></i>　社交关系</div></li>
-			<li><div class="modal-button" data-modal="scene-modal"><i class="fa-solid fa-image"></i>　场景回忆</div></li>
+			<li><div class="modal-button" data-modal="scene-modal"><i class="fa-solid fa-image"></i>　场景回溯</div></li>
 			<li><div class="modal-button" data-modal="save-modal"><i class="fa-solid fa-floppy-disk"></i>　存档管理</div></li>
 			<li><div class="modal-button" data-modal="set-modal"><i class="fa-solid fa-gear"></i>　游戏设置</div></li>
+			<li><div class="modal-button" data-modal="ad-modal"><i class="fa-solid fa-bullhorn"></i>　公告通知</div></li>
 		</ul></div>
+		<a id="back-button" href="javascript: window.history.back();">
+			<i class="bar-icon fa-solid fa-left-long"></i>
+		</a>
 		<div class="sidebar-imgbox">
 			<img class="sidebar-pix pixel"></img>
 			<img class="sidebar-pix pixel"></img>
@@ -46,18 +51,45 @@
 	s.maxMana=10;
 	s.nowS=0;
 	s.maxS=10; 
-	s.quark=0;
+	s.dressing= ['休闲服'];
+	s.quark=2000;
+	s.bag = [&#39;活页本与笔&#39;,&#39;雨伞&#39;,&#39;笔记本电脑&#39;];
 	s.Berylove=0;
 	s.Alumlove=0;
 	s.Arsenlove=0;
 	s.Iodlove=0;
 	s.Osmilove=0;
 	s.Darmslove=0;
+	s.Berymeet=false;
+	s.Alummeet=false;
+	s.Arsenmeet=false;
+	s.Iodmeet=false;
+	s.Osmimeet=false;
+	s.Darmsmeet=false;
 %&gt;
 
 关于某个“异类”……某些“异类”的故事。
 
-[[序章 存在合理|A]]</ecd-passagedata><ecd-passagedata pid="2" name="A" tags="" position="225,100" size="100,100">&lt;h1&gt;序章 存在合理&lt;/h1&gt;
+故事开始之前，于此敲定属于“我”的第三人称代词——
+
+&lt;a0.choice-ta data-value=&quot;他&quot;&gt;“他”。&lt;/a&gt;
+
+&lt;a0.choice-ta data-value=&quot;她&quot;&gt;“她”。&lt;/a&gt;
+
+&lt;a0.choice-ta data-value=&quot;TA&quot;&gt;“TA”。&lt;/a&gt;
+
+&lt;%
+	$(function() {
+		$(&#39;.choice-ta&#39;).click(function() {
+			s.ta = $(this).data(&#39;value&#39;);
+			$(&#39;.choice-ta&#39;).not(this).remove(); 
+			$(this).replaceWith(&#39;或许，用“&#39;+ s.ta +&#39;”来称呼我比较合适。&#39;);
+			$(&#39;.hidden&#39;).removeClass(&#39;hidden&#39;);
+		});
+	});
+%&gt;
+
+&lt;p.c.hidden&gt;[[序章　存在合理|A]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="2" name="A" tags="" position="225,100" size="100,100">&lt;h1&gt;序章　存在合理&lt;/h1&gt;
 
 我时常回忆。
 
@@ -81,7 +113,42 @@
 
 还未踏入大学的我，是这样想的。
 
-[[去往大学|A-1]]</ecd-passagedata><ecd-passagedata pid="3" name="A-1" tags="" position="350,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+&lt;p.c&gt;[[收拾行李|A-0]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="3" name="A-0" tags="" position="350,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+明天是报道的日子，现在我的行李还有一部分没收拾完毕。
+
+习惯性拖沓和一些微不足道的考虑，让站在剩下的这些物品前的我有些踌躇。
+
+&lt;a0.A-0-a&gt;录取通知书。&lt;/a&gt;
+
+&lt;a0.A-0-b&gt;装衣服的袋子。&lt;/a&gt;
+
+&lt;%
+	$(function() {
+		var choice = 0;
+		$(&#39;.A-0-a, .A-0-b&#39;).click(function() {
+			choice++;
+			var className = $(this).attr(&#39;class&#39;);
+			$(this).replaceWith(window.story.render(className));
+			if(choice&gt;1){$(&#39;.hidden&#39;).removeClass(&#39;hidden&#39;);};
+        });
+	});
+%&gt;	
+
+&lt;p.c.hidden&gt;[[等待明天到来|A-1]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="4" name="A-0-a" tags="" position="475,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+薄薄一张纸对折，展开后夹层的立体效果颇有些巧思。我短暂人生十八年的一个逗号。
+
+报道的时候或许会用到，我决定待会儿把录取通知书放在书包里。
+&lt;% s.bag.push(&#39;录取通知书&#39;) %&gt;</ecd-passagedata><ecd-passagedata pid="5" name="A-0-b" tags="" position="600,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+
+衣服没必要带太多，学校离家不远，即便是决定住在宿舍，每个周末也可以回到这里。
+
+实际上据我所知，只要是没课的时候就能出校。
+
+九月没有逃离夏日的余温，还不到穿两件衣服的季节。
+
+袋子不透明，但我清楚最底部压着一条崭新的格裙。</ecd-passagedata><ecd-passagedata pid="6" name="A-1" tags="" position="725,100" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 本地最好的综合性大学。
 
@@ -109,13 +176,17 @@
 
 [[“没错，我是。”|A-1-1]]
 
-[[“你是这里的学生吗？”|A-1-2]]</ecd-passagedata><ecd-passagedata pid="4" name="A-1-1" tags="" position="475,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+[[“你是这里的学生吗？”|A-1-2]]</ecd-passagedata><ecd-passagedata pid="7" name="A-1-1" tags="" position="850,100" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 就算还没去报道，毫无疑问，我已经被佩里俄杜斯大学录取了。
 
+“以前没有看到过你呢，这个时候……来报道的新生？”
+
+这不是显而易见的吗。
+
 &lt;% s.Berylove++ %&gt;
 
-[[TBC.]]</ecd-passagedata><ecd-passagedata pid="5" name="A-1-2" tags="" position="600,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+&lt;p.c&gt;[[TBC.]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="8" name="A-1-2" tags="" position="975,100" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 比问题回答问题更进一步的，用同样的问题回答问题。
 
@@ -123,25 +194,25 @@
 
 大概知道现在的距离和我对视非要使劲仰头不可，这孩子退了一步盯着我：“咦，难道我看起来像是吗？”
 
-&lt;a0.A-1-2-1&gt;“确实不像。”&lt;/a&gt;
+&lt;a0.cho#A-1-2-a&gt;“确实不像。”&lt;/a&gt;
 
-&lt;a0.A-1-2-2&gt;“也许学校会破格招录年轻天才……我猜。”&lt;/a&gt;
+&lt;a0.cho#A-1-2-b&gt;“也许学校会破格招录年轻天才……我猜。”&lt;/a&gt;
 
 &lt;%
 	$(function() {
-		$(&#39;.A-1-2-1, .A-1-2-2&#39;).click(function() {
-			var className = $(this).attr(&#39;class&#39;);
-			$(&#39;.A-1-2-1, .A-1-2-2&#39;).not(this).hide();
-			$(this).replaceWith(window.story.render(className));
+		$(&#39;.cho&#39;).click(function() {
+			var idName = $(this).attr(&#39;id&#39;);
+			$(&#39;.cho&#39;).not(this).remove(); 
+			$(this).replaceWith(window.story.render(idName));
 		});
 	});
-%&gt;</ecd-passagedata><ecd-passagedata pid="6" name="A-1-2-1" tags="" position="725,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+%&gt;</ecd-passagedata><ecd-passagedata pid="9" name="A-1-2-a" tags="" position="1100,100" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 “确实不像。”
 
 不管是身高还是声音，都更像是中学生……初中生吧。
 
-[[TBC.]]</ecd-passagedata><ecd-passagedata pid="7" name="A-1-2-2" tags="" position="850,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+&lt;p.c&gt;[[TBC.]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="10" name="A-1-2-b" tags="" position="1225,100" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 “什么年龄该做什么事”的话题没必要讨论。
 
@@ -153,13 +224,13 @@
 
 &lt;% s.Berylove++ %&gt;
 
-[[TBC.]]</ecd-passagedata><ecd-passagedata pid="8" name="TBC." tags="" position="975,100" size="100,100">&lt;p&gt;&lt;/p&gt;
+&lt;p.c&gt;[[TBC.]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="11" name="TBC." tags="" position="100,225" size="100,100">&lt;p&gt;&lt;/p&gt;
 
 未完。
 
 **……这不是啥也没写吗！**
 
-[[首页|Start]]</ecd-passagedata><ecd-passagedata pid="9" name="states" tags="" position="1100,100" size="100,100">&lt;%
+&lt;p.c&gt;[[首页|Start]]&lt;/p&gt;</ecd-passagedata><ecd-passagedata pid="12" name="states" tags="" position="225,225" size="100,100">&lt;%
 	s.nowHealth = Math.max(0, Math.min(s.nowHealth, s.maxHealth));
     s.nowMana = Math.max(0, Math.min(s.nowMana, s.maxMana));
     s.nowS = Math.max(0, Math.min(s.nowS, s.maxS));
@@ -239,25 +310,52 @@
 	&lt;div class=&quot;bar-container&quot;&gt;
 		&lt;%= &#39;&lt;div id=&quot;s-bar&quot; class=&quot;bar&quot; style=&quot;width:&#39; + percent3 + &#39;%;background-color:&#39; + color3 + &#39;&quot;&gt;&lt;/div&gt;&#39; %&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="10" name="assayer" tags="" position="1225,100" size="100,100">&lt;ul&gt;
-	&lt;li&gt;&lt;i class=&quot;modal-icon fa-solid fa-graduation-cap&quot;&gt;&lt;/i&gt;佩里俄杜斯大学新生。&lt;/li&gt;
-	&lt;li&gt;&lt;i class=&quot;modal-icon fa-solid fa-ranking-star&quot;&gt;&lt;/i&gt;没有阶段性成就。&lt;/li&gt;
-&lt;/ul&gt;</ecd-passagedata><ecd-passagedata pid="11" name="box" tags="" position="100,225" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-q&quot;&gt;&lt;/i&gt;持有夸克：&lt;%=s.quark%&gt;
+&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="13" name="assayer" tags="" position="350,225" size="100,100">* 🎓　佩里俄杜斯大学新生。
+* 🥇　没有阶段性成就。</ecd-passagedata><ecd-passagedata pid="14" name="box" tags="" position="475,225" size="100,100">* 👛　持有货币：&lt;%=s.quark%&gt;夸克。
+* 🎒　书包内容：&lt;% if (s.bag.length === 0) { %&gt;空无一物。&lt;% } else { %&gt;&lt;%= s.bag.join(&#39;，&#39;) + &#39;。&#39; %&gt;&lt;% } %&gt;
+* 👕　当前服装：<%= s.dressing.join('，')%>。
 &lt;% if(_.random(1, 6) == 1){ %&gt;
-如果看到这句话说明运气不错。1d6的水平吧？&lt;% } %&gt;</ecd-passagedata><ecd-passagedata pid="12" name="social" tags="" position="225,225" size="100,100">&lt;h4&gt;重要角色&lt;/h4&gt;
+如果看到这句话说明运气不错。1d6=1的水平吧？（就是1d6。）&lt;% } %&gt;
+
+&lt;div class=&quot;tabs&quot;&gt;
+    &lt;div class=&quot;tab active&quot; data-tab=&quot;schoolbag&quot;&gt;书包&lt;/div&gt;
+    &lt;div class=&quot;tab&quot; data-tab=&quot;dress&quot;&gt;服饰&lt;/div&gt;
+    &lt;div class=&quot;tab&quot; data-tab=&quot;carry&quot;&gt;其他&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tab-content&quot; data-tab=&quot;schoolbag&quot;&gt;
+    &lt;table&gt;
+        &lt;tr&gt;&lt;td&gt;雨伞&lt;/td&gt;&lt;td&gt;书包总是随身背着，里面总有雨伞装着。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;活页本与笔&lt;/td&gt;&lt;td&gt;书写现代化的时代多余的记录手段。&lt;/td&gt;&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;笔记本电脑&lt;/td&gt;&lt;td&gt;生产力工具或是娱乐根基。&lt;/td&gt;&lt;/tr&gt;
+		&lt;% if(s.bag.includes(&#39;录取通知书&#39;)){ %&gt;&lt;tr&gt;&lt;td&gt;录取通知书&lt;/td&gt;&lt;td&gt;只有纪念意义的纸制品。&lt;/td&gt;&lt;/tr&gt;&lt;% } %&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tab-content&quot; data-tab=&quot;dress&quot;&gt;
+    &lt;table&gt;
+        &lt;tr&gt;&lt;td&gt;高中校服&lt;/td&gt;&lt;td&gt;忽略校徽，普通的棒球服而已。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;红黑格裙&lt;/td&gt;&lt;td&gt;吊牌还在，由他人赠予的礼物。&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tab-content&quot; data-tab=&quot;carry&quot;&gt;
+    &lt;table&gt;
+        &lt;tr&gt;&lt;td&gt;手机&lt;/td&gt;&lt;td&gt;三年前的流行款式。&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+<script></script>
+  </ecd-passagedata><ecd-passagedata pid="15" name="social" tags="" position="600,225" size="100,100">&lt;h4&gt;重要角色&lt;/h4&gt;
 &lt;div class=&quot;social-main&quot;&gt;
 	&lt;table&gt;
         &lt;tr&gt;&lt;th colspan=&quot;2&quot; style=&quot;background-color: #40e0d0&quot;&gt;
 			&lt;i class=&quot;social-icon fa-solid fa-paper-plane&quot;&gt;&lt;/i&gt;柏律
 		&lt;/th&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;还没入学的同学&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;还没入学的同学？&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;柏律&lt;% if(s.Berymeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;宝石&lt;/td&gt;
-            &lt;td&gt;飞行&lt;/td&gt;
+            &lt;% if(s.Berylove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;宝石&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Berylove&gt;100){ %&gt;&lt;td&gt;飞行&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;甜度&lt;/td&gt;
+            &lt;% if(s.Berylove&gt;150){ %&gt;&lt;td&gt;甜度&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 	&lt;table&gt;
@@ -267,12 +365,12 @@
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;明星吗？&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿林&lt;% if(s.Alummeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;优雅&lt;/td&gt;
-            &lt;td&gt;工业&lt;/td&gt;
+            &lt;% if(s.Alumlove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;优雅&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Alumlove&gt;80){ %&gt;&lt;td&gt;工业&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;用餐&lt;/td&gt;
-            &lt;td&gt;“干杯”&lt;/td&gt;
+            &lt;% if(s.Alumlove&gt;120){ %&gt;&lt;td&gt;用餐&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Alumlove&gt;150){ %&gt;&lt;td&gt;“干杯”&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 	&lt;table&gt;
@@ -282,11 +380,11 @@
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;在搞行为艺术？&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;阿耳森&lt;% if(s.Arsenmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;“黄金”&lt;/td&gt;
-            &lt;td&gt;色彩&lt;/td&gt;
+            &lt;% if(s.Arsenlove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;“黄金”&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Arsenlove&gt;100){ %&gt;&lt;td&gt;色彩&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;蛇尸&lt;/td&gt;
+            &lt;% if(s.Arsenlove&gt;150){ %&gt;&lt;td&gt;蛇尸&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 	&lt;table&gt;
@@ -296,11 +394,11 @@
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;医生还是学者？&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;伊俄德&lt;% if(s.Iodmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;消毒&lt;/td&gt;
-            &lt;td&gt;羽毛&lt;/td&gt;
+            &lt;% if(s.Iodlove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;消毒&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Iodlove&gt;100){ %&gt;&lt;td&gt;羽毛&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;深海&lt;/td&gt;
+            &lt;% if(s.Iodlove&gt;150){ %&gt;&lt;td&gt;深海&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 	&lt;table&gt;
@@ -310,11 +408,11 @@
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;作家……？&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;俄斯弥&lt;% if(s.Osmimeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;书信&lt;/td&gt;
-            &lt;td&gt;重量&lt;/td&gt;
+            &lt;% if(s.Osmilove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;书信&lt;/td&gt;&lt;% } %&gt;
+			&lt;% if(s.Osmilove&gt;100){ %&gt;&lt;td&gt;重量&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;气息&lt;/td&gt;
+			&lt;% if(s.Osmilove&gt;150){ %&gt;&lt;td&gt;气息&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 	&lt;table&gt;
@@ -324,11 +422,11 @@
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;警察（真的吗）&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;达耳谟斯&lt;% if(s.Darmsmeet){ %&gt;认识我。&lt;% } else { %&gt;不认识我。&lt;% } %&gt;&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td width=&quot;50%&quot;&gt;电话&lt;/td&gt;
-            &lt;td&gt;条理&lt;/td&gt;
+            &lt;% if(s.Darmslove&gt;50){ %&gt;&lt;td width=&quot;50%&quot;&gt;电话&lt;/td&gt;&lt;% } %&gt;
+            &lt;% if(s.Darmslove&gt;100){ %&gt;&lt;td&gt;条理&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;狼犬&lt;/td&gt;
+            &lt;% if(s.Darmslove&gt;150){ %&gt;&lt;td&gt;狼犬&lt;/td&gt;&lt;% } %&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/div&gt;
@@ -352,7 +450,68 @@
 		&lt;/th&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;图书馆里奇怪的家伙&lt;/td&gt;&lt;/tr&gt;
     &lt;/table&gt;
-&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="13" name="scene" tags="" position="350,225" size="100,100">&lt;i class=&quot;modal-icon fa-solid fa-expand&quot;&gt;&lt;/i&gt;没有场景可供回忆。</ecd-passagedata><ecd-passagedata pid="14" name="footer" tags="" position="475,225" size="100,100">&lt;%
+&lt;/div&gt;</ecd-passagedata><ecd-passagedata pid="16" name="scene" tags="" position="725,225" size="100,100">* 📷　没有场景可供回溯。</ecd-passagedata><ecd-passagedata pid="17" name="ad" tags="" position="850,225" size="100,100">* ☢️　&lt;del&gt;广告位招租。&lt;/del&gt;……开玩笑的。
+* 🔗　企划主站：&lt;a href=&quot;https://elecode.wiki/&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa-solid fa-up-right-from-square&quot;&gt;&lt;/i&gt; 元素编码&lt;/a&gt;
+* ✉️　联系方式：&lt;a href=&quot;mailto:024@elecode.wiki&quot;&gt;&lt;i class=&quot;fa-solid fa-envelope-open-text&quot;&gt;&lt;/i&gt; 铬的邮箱&lt;/a&gt;
+* 📅　基础功能进度（手搓的福报）：
+
+&lt;table&gt;
+	&lt;tr&gt;
+        &lt;th&gt;目标任务&lt;/th&gt;
+        &lt;th&gt;完成情况&lt;/th&gt;
+        &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;框架设计&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; checked&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;侧边栏显示，状态更新，模态框&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;存档功能&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; checked&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;复数存档位，改名，导出导入&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;战斗系统&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;装备穿戴，遭遇战，Ｓ值影响&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;场景回溯&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;考虑ASCII画CG，跳转显示和返回&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;社交系统&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;&lt;del&gt;好感变化显示&lt;/del&gt;，绊文本快捷显示&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+        &lt;td&gt;地图系统&lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+            &lt;label class=&quot;checkbox-label&quot;&gt;&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;有必要吗？实际没有自由活动空间&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+* ✍️　实际游戏内容下辈子再填。</ecd-passagedata><ecd-passagedata pid="18" name="footer" tags="" position="975,225" size="100,100">&lt;%
 	$(document).ready(function () {
 	var messages = [
 		&#39;老是盯着这里看没啥意思，没写几句话。&#39;,
@@ -365,7 +524,7 @@
 		&#39;今天天气怎么样？要出门转转吗？&#39;,
 		&#39;ᴇʟᴇᴄᴏᴅᴇ ᴘʀᴏᴊᴇᴄᴛ&#39;,
 		&#39;不要忘记存档哦。&#39;,
-		&#39;保存和读取不会影响已修改存档的名字。但是删除会回到默认名称。&#39;,
+		&#39;保存和读取不会影响已修改存档的名字，删除存档则会回到默认名称。&#39;,
 		&#39;虽说有游戏设置，现在除了黑白切换之外啥都做不到。&#39;,
 		&#39;下载和上传存档都是所有存档一起，拿不准的话可以在上传前再下载备份一遍。&#39;,
 		&#39;没有自动恢复状态这种好事……会有吗？&#39;,
@@ -410,7 +569,7 @@
 	<div id="scene-modal" class="modal">
 		<div class="modal-content">
 			<span class="modal-close"><i class="fa-solid fa-xmark"></i></span>
-			<h2>场景回忆</h2>
+			<h2>场景回溯</h2>
 			<div id="scene"></div>
 		</div>
 	</div>
@@ -438,11 +597,18 @@
 			</div>
 		</div>
 	</div>
+	<div id="ad-modal" class="modal">
+		<div class="modal-content">
+			<span class="modal-close"><i class="fa-solid fa-xmark"></i></span>
+			<h2>公告通知</h2>
+			<div id="ad"></div>
+		</div>
+	</div>
 </div>
 	<script src="assets/js/snow.js"></script>
-	<script src="assets/js/118.js"></script>
+	<script src="assets/js/gal.js"></script>
 	<footer>
-        <div class="scroll-div"><p id="scroll-news"></p></div>
+        <div class="scroll-div"><div id="scroll-news"></div></div>
     </footer>
 </body>
 

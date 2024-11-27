@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/temp.css">
+    <title>测试之</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+</head>
+
+<body>
+    <header>
+还没想好写什么内容，姑且先放着……
+    </header>
+    <main>
+        <div class="content" id="content">
+            {{fold|显示|隐藏|
+            {{story|某个人的第一段故事。<br>{{c|001|其他内容。}}<br>
+            |第二段故事。<br>
+            |故事。
+            |事。
+            |最后的故事。
+            <br>故事结束了。<br>}}}}
+            
+            {{fold|显|隐|什么都没有。}}
+            {{info|003}}
+            {{story|第一段故事。<br>|第二段故事。<br>
+            |故事。<br>故事结束了。{{c|002|颜色不对。}}<br>}}
+
+            {{fold|折叠后介绍|展开后介绍|{{c|001|说话。}}}}
+
+            {{story|第一段故事。<br>{{c|002|其他内容。<br>众说纷纭。}}<br>|第二段故事。<br>|这样那样的故事。
+            <br>故事结束了。<br>}}
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 由野哉
+    </footer>
+    <script src="assets/js/temp.js"></script>
+</body>
+
+</html>

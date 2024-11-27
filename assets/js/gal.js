@@ -116,23 +116,21 @@ window.addEventListener('resize', function () {
 });
 
 //模态框
-$(function () {
-  $(".modal-button").click(function () {
-    const modalId = $(this).data("modal");
-    $(".modal").hide();
-    $("#" + modalId).show();
-  });
+$(".modal-button").click(function () {
+  const modalId = $(this).data("modal");
+  $(".modal").hide();
+  $("#" + modalId).show();
+});
 
-  $(".modal-close").click(function () {
-    $(".modal").hide();
-  });
+$(".modal-close").click(function () {
+  $(".modal").hide();
+});
 
-  $(window).click(function (event) {
-    $(".modal").each(function () {
-      if ($(event.target).is(this)) {
-        $(this).hide();
-      }
-    });
+$(window).click(function (event) {
+  $(".modal").each(function () {
+    if ($(event.target).is(this)) {
+      $(this).hide();
+    }
   });
 });
 
@@ -270,29 +268,51 @@ $(document).ready(function() {
 });
 
 
-//段落渲染为元素
+
 $(window).on('sm.passage.shown', function () {
+  //段落渲染为元素
   renderToSelector("#states", "states");
-
-});
-
-$(window).on('sm.passage.shown', function () {
   renderToSelector("#assayer", "assayer");
-});
-
-$(window).on('sm.passage.shown', function () {
   renderToSelector("#box", "box");
-});
-
-$(window).on('sm.passage.shown', function () {
   renderToSelector("#social", "social");
-});
-
-$(window).on('sm.passage.shown', function () {
   renderToSelector("#scene", "scene");
+  renderToSelector("#ad", "ad");
+
+  //记录检查点，便于回退
+  window.story.checkpoint();
+
+  if (window.passage.name !== 'Start') {
+    $('#back-button').show();
+  } else {
+    $('#back-button').hide(); 
+  }
+
+  //翻页重置滚动条
+  document.querySelector('ecd-story').scrollTop = 0;
+
+  //可切换标签页
+  $('.tab-content').hide();
+  $('.tab.active').each(function() {
+    var tabId = $(this).data('tab');
+      $('.tab-content[data-tab="' + tabId + '"]').show();
+  });
+  $('.tab').click(function() {
+    var tabId = $(this).data('tab');
+    $('.tab').removeClass('active');
+    $(this).addClass('active');
+    $('.tab-content').hide();
+    $('.tab-content[data-tab="' + tabId + '"]').show();
+  });
 });
 
+//渲染底部新闻为元素
 $(function () {window.story.render("footer");});
+
+
+//段落过渡，页面淡入
+$(document).on('sm.passage.showing', function() {
+  $("ecd-passage").hide(0).fadeIn(300);
+});
 
 
 //ASCII画
@@ -318,7 +338,17 @@ const ascii = {
 };
 
 
-//段落过渡，页面淡入
-$(document).on('sm.passage.showing', function() {
-  $("ecd-passage").hide(0).fadeIn(300);
+
+
+// 删除空白 <p> 标签
+function removeEmptyPTags() {
+  $("p").each(function() {
+      if ($(this).html().trim() === '') {
+          $(this).remove();
+      }
+  });
+}
+$(document).on('click', '[href="javascript:void(0)"], [onclick*="javascript:void(0)"]', function() {
+  removeEmptyPTags();
 });
+$(document).ready(removeEmptyPTags);
